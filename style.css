@@ -9,7 +9,7 @@ body {
 /* Header */
 header {
   height: 230px;
-  color: darkblue;
+  color: white;
   text-align: center;
   background-size: cover;
   background-position: center;
@@ -58,11 +58,15 @@ nav a:hover {
 }
 
 /* Footer */
-footer {
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 12px;
-  font-size: 14px;
+
+footer{
+position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;
+background: #222;
+color: white;
+text-align: center;
+padding: 10px;
 }
 
