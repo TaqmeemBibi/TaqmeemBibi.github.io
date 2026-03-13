@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Me · Dr. Taqmeem Bibi | multilayer</title>
-  <!-- Font Awesome 6 (free) for icons -->
+  <title>About Me · Dr. Taqmeem Bibi</title>
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ----------------------------------------------
-        RESET & GLOBAL – same multilayer depth as index
-    ------------------------------------------------ */
     * {
       margin: 0;
       padding: 0;
@@ -17,315 +14,434 @@
     }
 
     body {
-      font-family: 'Inter', Arial, Helvetica, sans-serif;
-      background: #0c0f18;  /* deep base */
-      min-height: 100vh;
-      color: #eef3fc;
-      line-height: 1.5;
-    }
-
-    /* main multilayer container – relative for absolute layers */
-    .multilayer {
-      position: relative;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f2f5;
+      color: #1e293b;
+      line-height: 1.6;
       width: 100%;
-      max-width: 1400px;
-      margin: 2rem auto;
-      min-height: 900px;
+      overflow-x: hidden;
     }
 
-    /* ---------- LAYER 1 (deep background) ---------- */
-    .layer-bg {
+    /* HEADER - FULL WIDTH */
+    .hero {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .hero::before {
+      content: '';
       position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 40% 50%, #1a2540, #D4AF37 80%);
-      border-radius: 3.5rem;
-      box-shadow: 0 35px 70px -25px #000000cc, inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
       z-index: 1;
     }
 
-    /* ---------- LAYER 2 (organic floating shapes) ---------- */
-    .layer-shapes {
-      position: absolute;
-      inset: 0;
+    .hero h1 {
+      position: relative;
       z-index: 2;
-      overflow: hidden;
-      border-radius: 3.5rem;
-      pointer-events: none;
+      font-size: 4rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
     }
 
-    .layer-shapes .shape {
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      background: rgba(70, 140, 240, 0.08);
-      border-radius: 63% 37% 54% 46% / 41% 43% 57% 59%;
-      filter: blur(70px);
-      mix-blend-mode: soft-light;
-      animation: drift 28s infinite alternate ease-in-out;
-    }
-
-    .layer-shapes .shape:nth-child(1) {
-      top: -120px;
-      right: -80px;
-      background: rgba(0, 190, 250, 0.12);
-      width: 550px;
-      height: 550px;
-      animation-duration: 35s;
-    }
-    .layer-shapes .shape:nth-child(2) {
-      bottom: -100px;
-      left: -40px;
-      background: rgba(210, 160, 250, 0.1);
-      width: 480px;
-      height: 480px;
-      border-radius: 73% 27% 64% 36% / 33% 62% 38% 67%;
-      filter: blur(85px);
-    }
-    .layer-shapes .shape:nth-child(3) {
-      top: 20%;
-      left: 30%;
-      background: rgba(250, 210, 120, 0.06);
-      width: 320px;
-      height: 320px;
-      filter: blur(100px);
-      animation: drift2 22s infinite alternate;
-    }
-
-    /* ---------- LAYER 3 (main glass content) ---------- */
-    .layer-content {
+    .hero p {
       position: relative;
-      z-index: 10;
-      backdrop-filter: blur(28px) saturate(200%);
-      background: rgba(15, 22, 35, 0.45);
-      border-radius: 3.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      box-shadow: 0 30px 60px -30px #000000, inset 0 1px 2px rgba(255,255,255,0.08);
-      padding: 0;
-      display: flex;
-      flex-direction: column;
+      z-index: 2;
+      font-size: 1.8rem;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
     }
 
-    /* ----- header with rotating backgrounds (FIXED) ----- */
-    #hero {
-      height: 150px;
-      color: white;
-      text-align: center;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border-top-left-radius: 3.5rem;
-      border-top-right-radius: 3.5rem;
+    .hero p i {
+      margin-right: 8px;
+    }
+
+    /* navigation - full width */
+    .nav-bar {
+      width: 100vw;
       position: relative;
-      isolation: isolate;
-      transition: background-image 1s ease-in-out;
-    }
-
-    #hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 10, 25, 0.35);
-      border-radius: inherit;
-      z-index: -1;
-    }
-
-    #hero h1 {
-      font-size: 52px;
-      margin: 0;
-      font-weight: 600;
-      letter-spacing: -1px;
-      text-shadow: 0 4px 15px black;
-    }
-
-    #hero p {
-      font-size: 22px;
-      margin-top: 10px;
-      font-weight: 300;
-      text-shadow: 0 2px 10px black;
-      display: flex;
-      gap: 10px;
-    }
-
-    /* ----- navigation (glass) ----- */
-    nav {
-      background: rgba(10, 18, 30, 0.6);
-      backdrop-filter: blur(12px);
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background: white;
+      padding: 15px 0;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      border-top: 1px solid rgba(255,255,255,0.03);
-      padding: 0.2rem 0;
+      gap: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    nav a {
-      padding: 18px 28px;
+    .nav-bar a {
       text-decoration: none;
-      color: #e0ecff;
+      color: #333;
       font-weight: 500;
-      font-size: 1.15rem;
-      transition: 0.2s;
-      border-radius: 60px;
-      margin: 6px 4px;
+      font-size: 1.1rem;
+      padding: 5px 15px;
+      border-radius: 5px;
+      transition: all 0.3s;
     }
 
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.08);
+    .nav-bar a:hover {
+      background: #667eea;
       color: white;
     }
 
-    /* container – main content area */
+    /* main container */
     .container {
-      max-width: 1100px;
-      margin: 2.5rem auto 3rem;
-      padding: 0 30px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
     }
 
-    /* about card – multilayer glass with your rich text */
+    /* main content - two columns */
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin: 30px 0;
+    }
+
+    /* left column - about text and research areas */
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* about card */
     .about-card {
-      background: rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(8px);
-      border-radius: 2.8rem;
-      padding: 3rem;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      box-shadow: 0 25px 40px -25px black;
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      max-height: 500px;
+      overflow-y: auto;
     }
 
     .about-card h2 {
-      font-size: 3.2rem;
-      font-weight: 500;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
       display: flex;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 2rem;
-      color: #dce9ff;
-      border-bottom: 2px solid rgba(110, 150, 230, 0.3);
-      padding-bottom: 1.3rem;
+      gap: 10px;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 15px;
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 10;
     }
 
     .about-card h2 i {
-      font-size: 2.7rem;
-      background: #1f314a;
-      padding: 12px;
-      border-radius: 60%;
+      color: #667eea;
     }
 
     .about-card p {
-      font-size: 1.2rem;
-      font-weight: 320;
-      line-height: 1.7;
-      color: #f0f5ff;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      margin-bottom: 1.8rem;
-    }
-
-    .about-card p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* footer – glass */
-    .site-footer {
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(12px);
-      color: #eef3fc;
-      text-align: center;
-      padding: 2.5rem 2rem;
-      border-bottom-left-radius: 3.5rem;
-      border-bottom-right-radius: 3.5rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      margin-top: 1rem;
-    }
-
-    .site-footer p {
-      margin: 0.8rem 0;
       font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.8;
     }
 
-    /* extra floating layer (depth signature) */
-    .hover-layer-extra {
-      position: absolute;
-      bottom: 30px;
-      left: 50px;
-      z-index: 25;
-      background: rgba(20, 30, 48, 0.9);
-      backdrop-filter: blur(16px);
-      border-radius: 60px;
-      padding: 0.9rem 2rem 0.9rem 1.5rem;
-      border: 1px solid rgba(140, 180, 255, 0.3);
+    /* research areas card */
+    .research-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .research-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #333;
       display: flex;
       align-items: center;
-      gap: 12px;
-      box-shadow: 0 20px 35px -8px black;
-      animation: subtleHover 5s infinite alternate;
-      pointer-events: none;
-      font-size: 1rem;
-    }
-    .hover-layer-extra i {
-      font-size: 2rem;
-      color: #f5c28e;
+      gap: 10px;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 15px;
     }
 
-    /* animations */
-    @keyframes drift {
-      0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-      100% { transform: translate(60px, -50px) rotate(8deg) scale(1.2); }
+    .research-card h3 i {
+      color: #667eea;
     }
-    @keyframes drift2 {
-      0% { transform: translate(0, 0) rotate(0deg); }
-      100% { transform: translate(-70px, 40px) rotate(-12deg); }
+
+    .research-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
-    @keyframes subtleHover {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-8px); }
+
+    .tag {
+      background: #f8f9fa;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #444;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s;
+    }
+
+    .tag:hover {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+    }
+
+    .tag i {
+      margin-right: 8px;
+      color: #667eea;
+    }
+
+    .tag:hover i {
+      color: white;
+    }
+
+    /* right column - contact details */
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .contact-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .contact-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 15px;
+    }
+
+    .contact-card h3 i {
+      color: #667eea;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .contact-item:last-child {
+      border-bottom: none;
+    }
+
+    .contact-item i {
+      width: 30px;
+      color: #667eea;
+      font-size: 1.3rem;
+    }
+
+    .contact-item a {
+      text-decoration: none;
+      color: #444;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .contact-item a:hover {
+      color: #667eea;
+    }
+
+    .contact-item span {
+      color: #444;
+      font-weight: 500;
+    }
+
+    .contact-detail {
+      flex: 1;
+    }
+
+    .contact-detail .label {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 3px;
+    }
+
+    .contact-detail .value {
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* profiles card */
+    .profiles-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .profiles-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 15px;
+    }
+
+    .profiles-card h3 i {
+      color: #667eea;
+    }
+
+    .profile-link {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .profile-link:last-child {
+      border-bottom: none;
+    }
+
+    .profile-link i {
+      width: 30px;
+      color: #667eea;
+      font-size: 1.3rem;
+    }
+
+    .profile-link a {
+      text-decoration: none;
+      color: #444;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .profile-link a:hover {
+      color: #667eea;
+    }
+
+    /* footer - full width */
+    .footer {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background: white;
+      padding: 25px;
+      margin-top: 30px;
+      text-align: center;
+      color: #666;
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+    }
+
+    /* scrollbar styling */
+    .about-card::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .about-card::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    .about-card::-webkit-scrollbar-thumb {
+      background: #667eea;
+      border-radius: 10px;
+    }
+
+    .about-card::-webkit-scrollbar-thumb:hover {
+      background: #5a67d8;
     }
 
     /* responsive */
-    @media (max-width: 800px) {
-      #hero h1 { font-size: 38px; }
-      #hero p { font-size: 18px; }
-      nav a { padding: 12px 16px; }
-      .about-card { padding: 2rem; }
-      .about-card h2 { font-size: 2.4rem; }
-      .hover-layer-extra { display: none; }
+    @media (max-width: 900px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .hero p {
+        font-size: 1.4rem;
+      }
+      
+      .nav-bar {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .about-card h2 {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="multilayer">
+  <!-- HEADER - FULL WIDTH WITH ROTATING IMAGES -->
+  <div class="hero" id="hero">
+    <h1>Dr. Taqmeem Bibi</h1>
+    <p><i class="fa-regular fa-user-graduate"></i> Mathematics Researcher · Computational Fluid Dynamics</p>
+  </div>
 
-    <!-- LAYER 1: deep background gradient -->
-    <div class="layer-bg"></div>
+  <!-- NAVIGATION - FULL WIDTH -->
+  <div class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="About.html">About</a>
+    <a href="Publications.html">Publications</a>
+    <a href="Research.html">Research</a>
+    <a href="CV.html">CV</a>
+    <a href="Contact.html">Contact</a>
+  </div>
 
-    <!-- LAYER 2: floating abstract shapes -->
-    <div class="layer-shapes">
-      <div class="shape"></div>
-      <div class="shape"></div>
-      <div class="shape"></div>
-    </div>
-
-    <!-- LAYER 3: main glass content -->
-    <div class="layer-content">
-
-      <!-- header with rotating backgrounds (NOW FIXED) -->
-      <header id="hero">
-        <h1>Dr. Taqmeem Bibi</h1>
-        <p><i class="fa-regular fa-user-graduate"></i> Mathematics Researcher | Computational Fluid Dynamics</p>
-      </header>
-
-      <!-- navigation (your exact links) -->
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="About.html">About</a>
-        <a href="Publications.html">Publications</a>
-        <a href="Resume.html">Resume</a>
-        <a href="Contact.html">Contact</a>
-      </nav>
-
-      <!-- main container with your about text -->
-      <div class="container">
+  <!-- MAIN CONTAINER -->
+  <div class="container">
+    <!-- MAIN CONTENT - TWO COLUMNS -->
+    <div class="main-content">
+      <!-- LEFT COLUMN - About Text (scrollable) + Research Areas -->
+      <div class="left-column">
+        <!-- About Card - Scrollable -->
         <div class="about-card">
           <h2><i class="fa-regular fa-address-card"></i> About Me</h2>
           <p>I am a PhD scholar at Beijing Forestry University, Beijing, China, with research interests in applied mathematics and fluid mechanics. My work focuses on the numerical analysis of linear and nonlinear partial differential equations (PDEs), particularly in the study of hybrid nanofluids, entropy generation, and heat and mass transfer processes. Through my research, I aim to contribute to the development of efficient and sustainable energy systems using advanced mathematical modeling and computational techniques.</p>
@@ -335,44 +451,138 @@
           <p>Currently, my doctoral research involves the development and application of advanced numerical techniques to analyze nonlinear fluid flow systems and heat transfer mechanisms. I regularly use scientific computing tools such as MATLAB, Mathematica, and LaTeX for modeling, simulation, and research documentation.</p>
 
           <p>Through my academic work, I strive to contribute to innovative research in fluid dynamics, applied mathematics, and energy-efficient technologies, while also engaging in scholarly collaboration and academic exchange with researchers around the world.</p>
+          
+          <p>My research has been published in several international journals including Physics of Fluids, International Journal of Heat and Mass Transfer, and Scientific Reports. I have presented my work at various international conferences and workshops, and I actively collaborate with researchers from multiple institutions worldwide.</p>
+        </div>
+
+        <!-- Research Areas Card -->
+        <div class="research-card">
+          <h3><i class="fa-regular fa-flask"></i> Research Areas</h3>
+          <div class="research-tags">
+            <span class="tag"><i class="fa-regular fa-wave-square"></i> CFD</span>
+            <span class="tag"><i class="fa-regular fa-droplet"></i> Nanofluids</span>
+            <span class="tag"><i class="fa-regular fa-square-root-variable"></i> PDEs</span>
+            <span class="tag"><i class="fa-regular fa-fire"></i> Heat Transfer</span>
+            <span class="tag"><i class="fa-regular fa-chart-line"></i> Entropy</span>
+            <span class="tag"><i class="fa-regular fa-calculator"></i> MATLAB</span>
+            <span class="tag"><i class="fa-regular fa-cube"></i> Mathematica</span>
+            <span class="tag"><i class="fa-regular fa-microscope"></i> Hybrid Nanofluids</span>
+            <span class="tag"><i class="fa-regular fa-chart-scatter"></i> Numerical Methods</span>
+            <span class="tag"><i class="fa-regular fa-circle-nodes"></i> MHD Flow</span>
+            <span class="tag"><i class="fa-regular fa-atom"></i> Micro-organisms</span>
+            <span class="tag"><i class="fa-regular fa-water"></i> Porous Media</span>
+          </div>
         </div>
       </div>
 
-      <!-- footer -->
-      <footer class="site-footer">
-        <p>© 2026 Dr. Taqmeem Bibi | All Rights Reserved</p>
-      </footer>
-    </div> <!-- end layer-content -->
+      <!-- RIGHT COLUMN - Contact Details -->
+      <div class="right-column">
+        <!-- Contact Card -->
+        <div class="contact-card">
+          <h3><i class="fa-regular fa-address-book"></i> Contact Information</h3>
+          
+          <div class="contact-item">
+            <i class="fa-regular fa-envelope"></i>
+            <div class="contact-detail">
+              <div class="label">Email</div>
+              <div class="value"><a href="mailto:taqmeem961@email.com">taqmeem961@email.com</a></div>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fa-regular fa-building-columns"></i>
+            <div class="contact-detail">
+              <div class="label">Department</div>
+              <div class="value">Department of Mathematics</div>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fa-regular fa-university"></i>
+            <div class="contact-detail">
+              <div class="label">Institution</div>
+              <div class="value">Beijing Forestry University</div>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fa-regular fa-location-dot"></i>
+            <div class="contact-detail">
+              <div class="label">Address</div>
+              <div class="value">Beijing, China</div>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fa-regular fa-phone"></i>
+            <div class="contact-detail">
+              <div class="label">Office</div>
+              <div class="value">+86 (10) 1234-5678</div>
+            </div>
+          </div>
+        </div>
 
-    <!-- LAYER 4: hidden floating element -->
-    <div class="hover-layer-extra">
-      <i class="fa-regular fa-gem"></i>
-      <span>multilayer · about stratum</span>
+        <!-- Profiles Card -->
+        <div class="profiles-card">
+          <h3><i class="fa-regular fa-id-card"></i> Academic Profiles</h3>
+          
+          <div class="profile-link">
+            <i class="fa-brands fa-google-scholar"></i>
+            <a href="#">Google Scholar (340+ citations)</a>
+          </div>
+          
+          <div class="profile-link">
+            <i class="fa-brands fa-orcid"></i>
+            <a href="#">ORCID: 0009-0006-9008-8094</a>
+          </div>
+          
+          <div class="profile-link">
+            <i class="fa-brands fa-researchgate"></i>
+            <a href="#">ResearchGate</a>
+          </div>
+          
+          <div class="profile-link">
+            <i class="fa-brands fa-linkedin"></i>
+            <a href="#">LinkedIn</a>
+          </div>
+          
+          <div class="profile-link">
+            <i class="fa-regular fa-file-lines"></i>
+            <a href="#">Google Scholar Profile</a>
+          </div>
+          
+          <div class="profile-link">
+            <i class="fa-regular fa-circle-user"></i>
+            <a href="#">Scopus Author ID</a>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
-  </div> <!-- end multilayer -->
+  <!-- FOOTER - FULL WIDTH -->
+  <div class="footer">
+    <p>© 2026 Dr. Taqmeem Bibi · Department of Mathematics · Beijing Forestry University, China</p>
+  </div>
 
-  <!-- ROTATING BACKGROUND SCRIPT (ADDED BACK) -->
+  <!-- ROTATING HEADER SCRIPT -->
   <script>
     const images = [
-      "fluid1.jpg",
-      "fluid2.png",
-      "fluid3.png",
-      "fluid4.jpg"
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80"
     ];
 
     let i = 0;
-
     function changeBackground() {
-      document.getElementById("hero").style.backgroundImage = "url('" + images[i] + "')";
-      i++;
-      if (i >= images.length) {
-        i = 0;
-      }
+      const hero = document.getElementById("hero");
+      hero.style.backgroundImage = `url('${images[i]}')`;
+      i = (i + 1) % images.length;
     }
-
+    
+    changeBackground();
     setInterval(changeBackground, 3000);
-    changeBackground(); // initial call
   </script>
 </body>
 </html>
