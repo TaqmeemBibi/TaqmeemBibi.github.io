@@ -26,20 +26,22 @@
       overflow-x: hidden;
     }
 
-    /* main container - FIXED WIDTH */
+    /* main container */
     .multilayer {
       width: 100%;
       max-width: 1200px;
-      margin: 1rem auto;
-      padding: 0 1rem;
+      margin: 0 auto;
+      padding: 1rem;
     }
 
-    /* header / hero with rotating background */
+    /* header / hero with rotating background - FIXED FULL WIDTH */
     #hero {
-      height: 250px;
-      border-radius: 2rem 2rem 0 0;
+      width: 100%;
+      height: 280px;
+      border-radius: 1.5rem 1.5rem 0 0;
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -56,36 +58,37 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0, 20, 40, 0.35);
-      border-radius: inherit;
+      background: rgba(0, 20, 40, 0.4);
+      border-radius: 1.5rem 1.5rem 0 0;
       z-index: -1;
     }
 
     #hero h1 {
-      font-size: 3rem;
+      font-size: 3.2rem;
       font-weight: 700;
       letter-spacing: -1px;
       text-shadow: 0 4px 18px black;
+      margin-bottom: 0.5rem;
     }
 
     #hero p {
-      font-size: 1.3rem;
-      margin-top: 0.5rem;
+      font-size: 1.4rem;
       display: flex;
       gap: 10px;
       text-shadow: 0 2px 10px black;
     }
 
-    /* navigation glass */
+    /* navigation */
     nav {
       background: rgba(255,255,255,0.7);
       backdrop-filter: blur(10px);
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      padding: 0.5rem 0.5rem;
+      padding: 0.5rem;
       border-bottom: 1px solid rgba(0,0,0,0.05);
       box-shadow: 0 5px 12px rgba(0,0,0,0.03);
+      width: 100%;
     }
 
     nav a {
@@ -104,66 +107,58 @@
     }
 
     /* WELCOME NOTE */
-    .welcome-note-prominent {
-      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-      backdrop-filter: blur(12px);
-      border-radius: 1.8rem;
-      padding: 1.8rem 2rem;
+    .welcome-section {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 2rem;
       margin: 1.5rem 0;
+      box-shadow: 0 10px 30px -15px rgba(0,0,0,0.1);
       border: 1px solid rgba(255,255,255,0.8);
-      box-shadow: 0 20px 40px -20px rgba(0,0,0,0.2);
     }
 
-    .welcome-note-prominent h2 {
+    .welcome-section h2 {
       font-size: 2.2rem;
       font-weight: 600;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       color: #1e3a5f;
       display: flex;
       align-items: center;
       gap: 15px;
     }
 
-    .welcome-note-prominent h2 i {
-      background: #ffffff;
-      padding: 12px;
-      border-radius: 60%;
+    .welcome-section h2 i {
       color: #2b4f7a;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
 
-    .welcome-note-prominent p {
+    .welcome-section p {
       font-size: 1.1rem;
-      max-width: 100%;
-      margin: 0 0 1.5rem 0;
-      color: #253746;
-      line-height: 1.6;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
     }
 
-    .stat-badges-prominent {
+    .stats-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: flex-start;
+      gap: 1.5rem;
+      margin-top: 1rem;
     }
 
-    .stat-badge {
-      background: white;
-      padding: 0.6rem 1.5rem;
+    .stat-item {
+      background: #f8fafc;
+      padding: 0.8rem 1.8rem;
       border-radius: 60px;
       font-weight: 500;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.03);
-      font-size: 0.95rem;
-      border: 1px solid rgba(255,255,255,0.8);
+      border: 1px solid #e2e8f0;
     }
 
-    .stat-badge i {
+    .stat-item i {
       margin-right: 8px;
-      color: #2c5282;
+      color: #2563eb;
     }
 
-    /* main grid – two columns - FIXED PROPORTIONS */
+    /* main grid */
     .home-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
@@ -171,15 +166,13 @@
       margin: 1.5rem 0;
     }
 
-    /* cards general style */
+    /* cards */
     .card {
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(12px);
+      background: white;
       border-radius: 1.5rem;
-      padding: 1.5rem 1.2rem;
-      box-shadow: 0 20px 35px -20px rgba(0,0,0,0.2);
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px -15px rgba(0,0,0,0.1);
       border: 1px solid rgba(255,255,255,0.6);
-      transition: 0.2s;
     }
 
     .card-title {
@@ -189,26 +182,23 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      border-bottom: 2px solid rgba(70, 110, 160, 0.2);
-      padding-bottom: 0.6rem;
+      color: #1e3a5f;
     }
 
     .card-title i {
-      color: #2c4e7a;
-      font-size: 1.6rem;
+      color: #2563eb;
     }
 
-    /* ----- scrolling co-author list (horizontal) ----- */
+    /* coauthor scroll */
     .scroll-container {
       width: 100%;
       overflow: hidden;
-      position: relative;
-      padding: 0.5rem 0;
+      margin: 1rem 0;
     }
 
     .coauthor-track {
       display: flex;
-      gap: 1.2rem;
+      gap: 1rem;
       width: max-content;
       animation: scrollCoauthor 25s linear infinite;
     }
@@ -217,179 +207,185 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      background: white;
-      padding: 0.5rem 1.3rem 0.5rem 1rem;
+      background: #f8fafc;
+      padding: 0.6rem 1.5rem 0.6rem 1.2rem;
       border-radius: 60px;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.05);
       font-weight: 500;
-      font-size: 0.9rem;
-      border: 1px solid rgba(0,0,0,0.03);
+      border: 1px solid #e2e8f0;
     }
 
     .coauthor-item i {
-      font-size: 1.5rem;
-      color: #3c5a7d;
+      font-size: 1.4rem;
+      color: #4b5563;
     }
 
-    /* ----- journal list (vertical scrolling) ----- */
-    .journal-scroll {
-      max-height: 220px;
+    /* journal list */
+    .journal-list {
+      max-height: 250px;
       overflow-y: auto;
-      padding-right: 5px;
-      scrollbar-width: thin;
     }
 
     .journal-item {
       display: flex;
-      align-items: center;
       gap: 12px;
-      padding: 0.8rem 0.3rem;
-      border-bottom: 1px dashed rgba(0,0,0,0.08);
+      padding: 1rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .journal-item:last-child {
+      border-bottom: none;
     }
 
     .journal-item i {
       font-size: 1.3rem;
-      color: #3f6a9c;
+      color: #2563eb;
       min-width: 30px;
-      text-align: center;
+    }
+
+    .journal-info h4 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+      color: #1e293b;
     }
 
     .journal-info p {
-      font-weight: 600;
-      margin-bottom: 3px;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      color: #64748b;
     }
 
-    .journal-info span {
-      font-size: 0.8rem;
-      color: #4a5d77;
-    }
-
-    /* ----- events slider (horizontal) ----- */
+    /* events slider */
     .events-slider {
       display: flex;
       gap: 1rem;
       overflow-x: auto;
-      scroll-snap-type: x mandatory;
       padding: 0.5rem 0 1rem 0;
-      scrollbar-width: thin;
     }
 
     .event-card {
-      min-width: 200px;
-      background: white;
-      border-radius: 1.5rem;
-      padding: 1.2rem 1rem;
-      scroll-snap-align: start;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.03);
-      border: 1px solid rgba(0,0,0,0.03);
+      min-width: 220px;
+      background: #f8fafc;
+      border-radius: 1.2rem;
+      padding: 1.2rem;
+      border: 1px solid #e2e8f0;
     }
 
     .event-date {
-      font-weight: 700;
-      color: #1f4a8a;
+      font-weight: 600;
+      color: #2563eb;
       margin-bottom: 8px;
-      font-size: 1rem;
-    }
-
-    .event-desc {
-      font-weight: 500;
-      margin-bottom: 5px;
       font-size: 0.95rem;
     }
 
-    .event-loc {
-      font-size: 0.8rem;
-      color: #4b6584;
+    .event-title {
+      font-weight: 600;
+      margin-bottom: 5px;
     }
 
-    /* right column – profile links */
-    .profile-links {
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(8px);
+    .event-location {
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    /* right column - PROFILES AND RESEARCH AREAS (NOW VISIBLE) */
+    .profile-card {
+      background: white;
       border-radius: 1.5rem;
       padding: 1.5rem;
-      border: 1px solid white;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 30px -15px rgba(0,0,0,0.1);
     }
 
-    .profile-links h3 {
-      font-size: 1.5rem;
+    .profile-card h3 {
+      font-size: 1.3rem;
       margin-bottom: 1.2rem;
       display: flex;
+      align-items: center;
       gap: 10px;
-      border-bottom: 2px solid rgba(70,110,160,0.2);
-      padding-bottom: 0.6rem;
+      color: #1e3a5f;
     }
 
-    .link-item {
+    .profile-item {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 0.7rem 0;
-      border-bottom: 1px dashed rgba(0,0,0,0.05);
-      font-size: 0.95rem;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #e2e8f0;
     }
 
-    .link-item i {
+    .profile-item:last-child {
+      border-bottom: none;
+    }
+
+    .profile-item i {
       width: 25px;
+      color: #2563eb;
       font-size: 1.2rem;
-      color: #2c4e7a;
     }
 
-    .link-item a {
+    .profile-item a {
       text-decoration: none;
-      color: #1e3a5f;
+      color: #334155;
       font-weight: 500;
     }
 
-    .link-item a:hover {
-      text-decoration: underline;
+    .profile-item a:hover {
+      color: #2563eb;
     }
 
-    /* research interests */
-    .research-focus {
-      background: rgba(255,255,255,0.5);
-      backdrop-filter: blur(5px);
+    .profile-item span {
+      color: #334155;
+    }
+
+    /* RESEARCH AREAS SECTION */
+    .research-areas {
+      background: white;
       border-radius: 1.5rem;
       padding: 1.5rem;
-      margin-top: 1.5rem;
+      box-shadow: 0 10px 30px -15px rgba(0,0,0,0.1);
     }
 
-    .research-focus h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+    .research-areas h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.2rem;
       display: flex;
+      align-items: center;
       gap: 10px;
+      color: #1e3a5f;
     }
 
-    .tag-container {
+    .tags-cloud {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.7rem;
+      gap: 0.8rem;
     }
 
     .research-tag {
-      background: white;
-      padding: 0.5rem 1.2rem;
+      background: #f8fafc;
+      padding: 0.6rem 1.2rem;
       border-radius: 60px;
+      font-size: 0.95rem;
       font-weight: 500;
-      font-size: 0.9rem;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+      border: 1px solid #e2e8f0;
+      color: #334155;
+    }
+
+    .research-tag i {
+      margin-right: 6px;
+      color: #2563eb;
     }
 
     /* footer */
     .site-footer {
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(8px);
+      background: white;
       border-radius: 1.5rem;
       padding: 1.5rem;
       margin-top: 1.5rem;
       text-align: center;
-      border: 1px solid rgba(255,255,255,0.7);
-      font-size: 0.95rem;
+      border: 1px solid #e2e8f0;
+      color: #64748b;
     }
 
-    /* animations */
+    /* animation */
     @keyframes scrollCoauthor {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
@@ -407,18 +403,15 @@
       #hero h1 { 
         font-size: 2.2rem; 
       }
-      .welcome-note-prominent h2 { 
-        font-size: 1.8rem; 
-      }
-      .multilayer {
-        padding: 0 0.8rem;
+      #hero {
+        height: 220px;
       }
     }
 
     @media (max-width: 480px) {
       nav a {
         padding: 0.5rem 1rem;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
       }
       #hero h1 {
         font-size: 1.8rem;
@@ -429,7 +422,7 @@
 <body>
   <div class="multilayer">
 
-    <!-- hero with rotating images -->
+    <!-- hero with rotating images - FIXED FULL WIDTH -->
     <header id="hero">
       <h1>Dr. Taqmeem Bibi</h1>
       <p><i class="fa-regular fa-at"></i> Mathematics · CFD · Nanofluids</p>
@@ -445,34 +438,35 @@
       <a href="Contact.html">Contact</a>
     </nav>
 
-    <!-- WELCOME NOTE - Prominently displayed -->
-    <div class="welcome-note-prominent">
+    <!-- WELCOME SECTION - CLEARLY VISIBLE -->
+    <div class="welcome-section">
       <h2>
         <i class="fa-regular fa-hand-peace"></i> 
-        Welcome to My Academic Hub
+        Welcome to My Research Profile
       </h2>
       <p>
-        I am a PhD scholar at Beijing Forestry University, specializing in applied mathematics and fluid dynamics. 
-        My research focuses on numerical analysis of partial differential equations (PDEs), hybrid nanofluids, 
-        entropy generation, and heat/mass transfer processes.
+        I am a PhD scholar at Beijing Forestry University, Beijing, China, specializing in applied mathematics 
+        and computational fluid dynamics. My research focuses on numerical analysis of partial differential equations, 
+        hybrid nanofluids, entropy generation, and heat/mass transfer processes. I am passionate about developing 
+        efficient computational methods for sustainable energy systems.
       </p>
-      <div class="stat-badges-prominent">
-        <span class="stat-badge"><i class="fa-regular fa-file-lines"></i> 18+ pubs</span>
-        <span class="stat-badge"><i class="fa-regular fa-users"></i> 12+ coauthors</span>
-        <span class="stat-badge"><i class="fa-regular fa-calendar"></i> 5 events</span>
-        <span class="stat-badge"><i class="fa-regular fa-building-columns"></i> Beijing Forestry Univ.</span>
+      <div class="stats-row">
+        <span class="stat-item"><i class="fa-regular fa-file-lines"></i> 18+ Publications</span>
+        <span class="stat-item"><i class="fa-regular fa-users"></i> 12+ Coauthors</span>
+        <span class="stat-item"><i class="fa-regular fa-calendar"></i> 5 Events 2025</span>
+        <span class="stat-item"><i class="fa-regular fa-building-columns"></i> Beijing Forestry Univ.</span>
       </div>
     </div>
 
-    <!-- main dynamic content with sliders -->
+    <!-- main dynamic content -->
     <div class="home-grid">
-      <!-- LEFT COLUMN – coauthor, journals, events -->
+      <!-- LEFT COLUMN -->
       <div class="left-col" style="display: flex; flex-direction: column; gap: 1.5rem;">
 
-        <!-- TOP COAUTHORS scrolling horizontal -->
+        <!-- TOP COAUTHORS -->
         <div class="card">
           <div class="card-title">
-            <i class="fa-regular fa-users"></i> top coauthors
+            <i class="fa-regular fa-users"></i> Top Coauthors
           </div>
           <div class="scroll-container">
             <div class="coauthor-track">
@@ -483,7 +477,7 @@
               <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Dr. M. Ali</div>
               <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Dr. F. Rossi</div>
               <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Prof. H. Tanaka</div>
-              <!-- duplicate -->
+              <!-- duplicate for seamless loop -->
               <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Prof. Y. Wang</div>
               <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Dr. A. Kumar</div>
               <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Dr. S. Zhang</div>
@@ -494,35 +488,35 @@
         <!-- JOURNAL LIST -->
         <div class="card">
           <div class="card-title">
-            <i class="fa-regular fa-book-open"></i> recent publications
+            <i class="fa-regular fa-book-open"></i> Recent Publications
           </div>
-          <div class="journal-scroll">
+          <div class="journal-list">
             <div class="journal-item">
               <i class="fa-regular fa-file-lines"></i>
               <div class="journal-info">
-                <p>Physics of Fluids, 2025</p>
-                <span>Hybrid nanofluid with micro-organisms</span>
+                <h4>Physics of Fluids (2025)</h4>
+                <p>Hybrid nanofluid with micro-organisms</p>
               </div>
             </div>
             <div class="journal-item">
               <i class="fa-regular fa-file-lines"></i>
               <div class="journal-info">
-                <p>Int. J. Heat Mass Transfer, 2024</p>
-                <span>Entropy generation in porous cavity</span>
+                <h4>Int. J. Heat Mass Transfer (2024)</h4>
+                <p>Entropy generation in porous cavity</p>
               </div>
             </div>
             <div class="journal-item">
               <i class="fa-regular fa-file-lines"></i>
               <div class="journal-info">
-                <p>Scientific Reports, 2024</p>
-                <span>Numerical analysis of MHD flow</span>
+                <h4>Scientific Reports (2024)</h4>
+                <p>Numerical analysis of MHD flow</p>
               </div>
             </div>
             <div class="journal-item">
               <i class="fa-regular fa-file-lines"></i>
               <div class="journal-info">
-                <p>Appl. Math & Mechanics, 2023</p>
-                <span>Cattaneo-Christov heat flux model</span>
+                <h4>Appl. Math & Mechanics (2023)</h4>
+                <p>Cattaneo-Christov heat flux model</p>
               </div>
             </div>
           </div>
@@ -531,70 +525,77 @@
         <!-- SPECIAL EVENTS -->
         <div class="card">
           <div class="card-title">
-            <i class="fa-regular fa-calendar-star"></i> special events
+            <i class="fa-regular fa-calendar-star"></i> Special Events
           </div>
           <div class="events-slider">
             <div class="event-card">
               <div class="event-date"><i class="fa-regular fa-calendar"></i> 12-14 May 2025</div>
-              <div class="event-desc">ICHMT Heat Transfer</div>
-              <div class="event-loc">Istanbul, Turkey</div>
+              <div class="event-title">ICHMT Heat Transfer</div>
+              <div class="event-location">Istanbul, Turkey</div>
             </div>
             <div class="event-card">
               <div class="event-date"><i class="fa-regular fa-calendar"></i> 20-22 Jun 2025</div>
-              <div class="event-desc">ICNMM Micro/Nanofluidics</div>
-              <div class="event-loc">Beijing, China</div>
+              <div class="event-title">ICNMM Micro/Nanofluidics</div>
+              <div class="event-location">Beijing, China</div>
             </div>
             <div class="event-card">
               <div class="event-date"><i class="fa-regular fa-calendar"></i> 5-7 Sep 2025</div>
-              <div class="event-desc">CFD Symposium</div>
-              <div class="event-loc">Singapore</div>
+              <div class="event-title">CFD Symposium</div>
+              <div class="event-location">Singapore</div>
             </div>
             <div class="event-card">
               <div class="event-date"><i class="fa-regular fa-calendar"></i> 2-4 Nov 2025</div>
-              <div class="event-desc">Hybrid Nanofluids Workshop</div>
-              <div class="event-loc">Online</div>
+              <div class="event-title">Hybrid Nanofluids Workshop</div>
+              <div class="event-location">Online</div>
             </div>
           </div>
         </div>
-      </div> <!-- end left col -->
+      </div> 
 
-      <!-- RIGHT COLUMN – profile links -->
+      <!-- RIGHT COLUMN - PROFILES AND RESEARCH AREAS (NOW VISIBLE) -->
       <div class="right-col">
-        <div class="profile-links">
-          <h3><i class="fa-regular fa-address-card"></i> profiles</h3>
-          <div class="link-item">
+        <!-- PROFILES SECTION -->
+        <div class="profile-card">
+          <h3><i class="fa-regular fa-address-card"></i> Researcher Profiles</h3>
+          <div class="profile-item">
             <i class="fa-brands fa-google-scholar"></i>
             <a href="#">Google Scholar (340+ citations)</a>
           </div>
-          <div class="link-item">
+          <div class="profile-item">
             <i class="fa-brands fa-orcid"></i>
             <a href="#">ORCID: 0009-0006-9008-8094</a>
           </div>
-          <div class="link-item">
+          <div class="profile-item">
             <i class="fa-brands fa-researchgate"></i>
             <a href="#">ResearchGate</a>
           </div>
-          <div class="link-item">
+          <div class="profile-item">
             <i class="fa-brands fa-linkedin"></i>
             <a href="#">LinkedIn</a>
           </div>
-          <div class="link-item">
+          <div class="profile-item">
             <i class="fa-regular fa-envelope"></i>
             <a href="mailto:taqmeem961@email.com">taqmeem961@email.com</a>
           </div>
+          <div class="profile-item">
+            <i class="fa-regular fa-building-columns"></i>
+            <span>Beijing Forestry University</span>
+          </div>
         </div>
 
-        <!-- research interests -->
-        <div class="research-focus">
-          <h3><i class="fa-regular fa-flask"></i> research focus</h3>
-          <div class="tag-container">
-            <span class="research-tag">CFD</span>
-            <span class="research-tag">Nanofluids</span>
-            <span class="research-tag">PDEs</span>
-            <span class="research-tag">Heat Transfer</span>
-            <span class="research-tag">Entropy</span>
-            <span class="research-tag">MATLAB</span>
-            <span class="research-tag">Mathematica</span>
+        <!-- RESEARCH AREAS SECTION - NOW ADDED -->
+        <div class="research-areas">
+          <h3><i class="fa-regular fa-flask"></i> Research Areas</h3>
+          <div class="tags-cloud">
+            <span class="research-tag"><i class="fa-regular fa-wave-square"></i> CFD</span>
+            <span class="research-tag"><i class="fa-regular fa-droplet"></i> Nanofluids</span>
+            <span class="research-tag"><i class="fa-regular fa-square-root-variable"></i> PDEs</span>
+            <span class="research-tag"><i class="fa-regular fa-fire"></i> Heat Transfer</span>
+            <span class="research-tag"><i class="fa-regular fa-chart-line"></i> Entropy</span>
+            <span class="research-tag"><i class="fa-regular fa-calculator"></i> MATLAB</span>
+            <span class="research-tag"><i class="fa-regular fa-cube"></i> Mathematica</span>
+            <span class="research-tag"><i class="fa-regular fa-microscope"></i> Hybrid Nanofluids</span>
+            <span class="research-tag"><i class="fa-regular fa-chart-scatter"></i> Numerical Methods</span>
           </div>
         </div>
       </div>
@@ -602,7 +603,7 @@
 
     <!-- footer -->
     <footer class="site-footer">
-      <p>© 2026 Dr. Taqmeem Bibi · Department of Mathematics · Beijing Forestry University</p>
+      <p>© 2026 Dr. Taqmeem Bibi · Department of Mathematics · Beijing Forestry University, China</p>
     </footer>
   </div>
 
@@ -617,7 +618,10 @@
 
     let i = 0;
     function changeBackground() {
-      document.getElementById("hero").style.backgroundImage = "url('" + images[i] + "')";
+      const hero = document.getElementById("hero");
+      if (images[i]) {
+        hero.style.backgroundImage = "url('" + images[i] + "')";
+      }
       i = (i + 1) % images.length;
     }
     setInterval(changeBackground, 3000);
