@@ -99,12 +99,74 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
 
+    /* WELCOME NOTE - PROMINENT AT TOP */
+    .welcome-note-prominent {
+      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+      backdrop-filter: blur(12px);
+      border-radius: 2.2rem;
+      padding: 2.5rem 3rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: 0 20px 40px -20px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .welcome-note-prominent h2 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #1e3a5f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .welcome-note-prominent h2 i {
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 60%;
+      color: #2b4f7a;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .welcome-note-prominent p {
+      font-size: 1.3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      color: #253746;
+      line-height: 1.7;
+    }
+
+    .stat-badges-prominent {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .stat-badge {
+      background: white;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.03);
+      font-size: 1.1rem;
+      border: 1px solid rgba(255,255,255,0.8);
+    }
+
+    .stat-badge i {
+      margin-right: 10px;
+      color: #2c5282;
+    }
+
     /* main grid – two columns */
     .home-grid {
       display: grid;
       grid-template-columns: 1.5fr 1fr;
       gap: 2rem;
-      margin: 2.5rem 0;
+      margin: 2rem 0;
     }
 
     /* cards general style */
@@ -165,15 +227,6 @@
       border: 1px solid rgba(0,0,0,0.03);
     }
 
-    .coauthor-item img {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: #cbd5e1;
-    }
-
-    /* fallback avatar icons */
     .coauthor-item i {
       font-size: 2rem;
       color: #3c5a7d;
@@ -249,47 +302,46 @@
       color: #4b6584;
     }
 
-    /* right column – welcome note + extra */
-    .welcome-note {
+    /* right column – extra info */
+    .profile-links {
       background: rgba(255,255,255,0.7);
       backdrop-filter: blur(8px);
       border-radius: 2.2rem;
       padding: 2rem;
-      margin-bottom: 2rem;
       border: 1px solid white;
     }
 
-    .welcome-note h2 {
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
+    .profile-links h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
       display: flex;
       gap: 12px;
+      border-bottom: 2px solid rgba(70,110,160,0.2);
+      padding-bottom: 0.8rem;
     }
 
-    .welcome-note p {
-      font-size: 1.1rem;
-      color: #253746;
-    }
-
-    /* stats mini */
-    .stat-badges {
+    .link-item {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.8rem;
+      align-items: center;
+      gap: 15px;
+      padding: 1rem 0;
+      border-bottom: 1px dashed rgba(0,0,0,0.05);
     }
 
-    .stat-badge {
-      background: white;
-      padding: 0.6rem 1.3rem;
-      border-radius: 40px;
+    .link-item i {
+      width: 30px;
+      font-size: 1.5rem;
+      color: #2c4e7a;
+    }
+
+    .link-item a {
+      text-decoration: none;
+      color: #1e3a5f;
       font-weight: 500;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.02);
     }
 
-    .stat-badge i {
-      margin-right: 6px;
-      color: #2c5282;
+    .link-item a:hover {
+      text-decoration: underline;
     }
 
     /* footer */
@@ -309,7 +361,6 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* hover pause effect */
     .scroll-container:hover .coauthor-track {
       animation-play-state: paused;
     }
@@ -318,6 +369,8 @@
     @media (max-width: 950px) {
       .home-grid { grid-template-columns: 1fr; }
       #hero h1 { font-size: 2.8rem; }
+      .welcome-note-prominent h2 { font-size: 2.2rem; }
+      .welcome-note-prominent p { font-size: 1.1rem; }
     }
   </style>
 </head>
@@ -340,6 +393,26 @@
       <a href="Contact.html">Contact</a>
     </nav>
 
+    <!-- WELCOME NOTE - PROMINENTLY DISPLAYED AT TOP -->
+    <div class="welcome-note-prominent">
+      <h2>
+        <i class="fa-regular fa-hand-peace"></i> 
+        Welcome to My Academic Hub
+      </h2>
+      <p>
+        I am a PhD scholar at Beijing Forestry University, specializing in applied mathematics and fluid dynamics. 
+        My research focuses on numerical analysis of partial differential equations (PDEs), hybrid nanofluids, 
+        entropy generation, and heat/mass transfer processes. Through advanced mathematical modeling and 
+        computational techniques, I aim to contribute to sustainable energy systems.
+      </p>
+      <div class="stat-badges-prominent">
+        <span class="stat-badge"><i class="fa-regular fa-file-lines"></i> 18+ publications</span>
+        <span class="stat-badge"><i class="fa-regular fa-users"></i> 12+ coauthors</span>
+        <span class="stat-badge"><i class="fa-regular fa-calendar"></i> 5 upcoming events</span>
+        <span class="stat-badge"><i class="fa-regular fa-building-columns"></i> Beijing Forestry Univ.</span>
+      </div>
+    </div>
+
     <!-- main dynamic content with sliders -->
     <div class="home-grid">
       <!-- LEFT COLUMN ( wider ) – contains coauthor, journals, events -->
@@ -352,7 +425,7 @@
           </div>
           <div class="scroll-container">
             <div class="coauthor-track">
-              <!-- duplicated set for seamless loop (will be populated via JS, but static fallback) -->
+              <!-- duplicated set for seamless loop -->
               <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Prof. Y. Wang</div>
               <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Dr. A. Kumar</div>
               <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Dr. S. Zhang</div>
@@ -457,26 +530,52 @@
         </div>
       </div> <!-- end left col -->
 
-      <!-- RIGHT COLUMN – welcome note, additional info -->
+      <!-- RIGHT COLUMN – profile links and additional info -->
       <div class="right-col">
-        <div class="welcome-note">
-          <h2><i class="fa-regular fa-hand-peace"></i> welcome</h2>
-          <p>I am a PhD scholar at Beijing Forestry University, specializing in applied mathematics & fluid dynamics. My research blends numerical PDEs, hybrid nanofluids, and entropy analysis. Below you'll find recent collaborations, journal outlets, and upcoming events.</p>
-          <div class="stat-badges">
-            <span class="stat-badge"><i class="fa-regular fa-file"></i> 18+ publications</span>
-            <span class="stat-badge"><i class="fa-regular fa-user-group"></i> 12 coauthors</span>
-            <span class="stat-badge"><i class="fa-regular fa-calendar"></i> 5 events 2025</span>
+        <div class="profile-links">
+          <h3><i class="fa-regular fa-address-card"></i> researcher profiles</h3>
+          
+          <div class="link-item">
+            <i class="fa-brands fa-google-scholar"></i>
+            <a href="#">Google Scholar (citations 340+)</a>
+          </div>
+          
+          <div class="link-item">
+            <i class="fa-brands fa-orcid"></i>
+            <a href="#">ORCID: 0009-0006-9008-8094</a>
+          </div>
+          
+          <div class="link-item">
+            <i class="fa-brands fa-researchgate"></i>
+            <a href="#">ResearchGate</a>
+          </div>
+          
+          <div class="link-item">
+            <i class="fa-brands fa-linkedin"></i>
+            <a href="#">LinkedIn</a>
+          </div>
+          
+          <div class="link-item">
+            <i class="fa-regular fa-envelope"></i>
+            <a href="mailto:taqmeem961@email.com">taqmeem961@email.com</a>
+          </div>
+          
+          <div class="link-item">
+            <i class="fa-regular fa-building-columns"></i>
+            <span>Beijing Forestry University</span>
           </div>
         </div>
 
-        <!-- quick links / researcher info -->
-        <div style="background: rgba(255,255,255,0.5); backdrop-filter: blur(5px); border-radius: 2rem; padding: 1.8rem;">
-          <h3 style="display: flex; gap: 10px; margin-bottom: 1.5rem;"><i class="fa-regular fa-link"></i> profiles</h3>
-          <div style="display: flex; flex-direction: column; gap: 1rem;">
-            <div><i class="fa-brands fa-google-scholar" style="width: 30px;"></i> <a href="#">Google Scholar (citations 340+)</a></div>
-            <div><i class="fa-brands fa-orcid" style="width: 30px;"></i> <a href="#">ORCID: 0009-0006-9008-8094</a></div>
-            <div><i class="fa-brands fa-researchgate" style="width: 30px;"></i> <a href="#">ResearchGate</a></div>
-            <div><i class="fa-regular fa-building-columns"></i> Beijing Forestry University</div>
+        <!-- quick research interests -->
+        <div style="background: rgba(255,255,255,0.5); backdrop-filter: blur(5px); border-radius: 2rem; padding: 1.8rem; margin-top: 1.5rem;">
+          <h3 style="display: flex; gap: 10px; margin-bottom: 1.2rem;"><i class="fa-regular fa-flask"></i> research focus</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+            <span class="stat-badge">CFD</span>
+            <span class="stat-badge">Nanofluids</span>
+            <span class="stat-badge">PDEs</span>
+            <span class="stat-badge">Heat Transfer</span>
+            <span class="stat-badge">Entropy</span>
+            <span class="stat-badge">MATLAB</span>
           </div>
         </div>
       </div>
@@ -485,7 +584,7 @@
     <!-- footer -->
     <footer class="site-footer">
       <p>© 2026 Dr. Taqmeem Bibi · Department of Mathematics · All rights reserved</p>
-      <p style="margin-top: 10px;">Email: taqmeem961@email.com</p>
+      <p style="margin-top: 10px; opacity: 0.8;">Beijing Forestry University, China</p>
     </footer>
   </div>
 
@@ -506,23 +605,14 @@
     setInterval(changeBackground, 3000);
     changeBackground();
 
-    // Optional: you can add more dynamic coauthor list via JS, but static fallback works.
-    // For a truly infinite effect, we can clone items with js. 
-    // The CSS animation already loops seamlessly.
-  </script>
-
-  <!-- extra tiny script to duplicate coauthor items for very long seamless scroll (optional) -->
-  <script>
+    // ensure coauthor track has enough items for seamless scrolling
     (function() {
-      // ensure the coauthor track has enough duplicates for smooth infinite scroll
       const track = document.querySelector('.coauthor-track');
       if (track) {
         const items = Array.from(track.children);
-        // if not enough total width, duplicate once more (but we already have 14 items, fine)
         const totalWidth = track.scrollWidth;
         const container = track.parentElement;
-        if (container && totalWidth < container.offsetWidth * 2) {
-          // duplicate the set again
+        if (container && totalWidth < container.offsetWidth * 1.5) {
           items.forEach(item => {
             const clone = item.cloneNode(true);
             track.appendChild(clone);
