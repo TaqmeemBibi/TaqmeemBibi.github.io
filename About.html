@@ -105,12 +105,11 @@
       flex-direction: column;
     }
 
-    /* ----- header (consistent with index) ----- */
+    /* ----- header with rotating backgrounds (FIXED) ----- */
     #hero {
       height: 250px;
       color: white;
       text-align: center;
-      background: linear-gradient(135deg, #0f1a2b, #16233b); /* fallback */
       background-size: cover;
       background-position: center;
       display: flex;
@@ -121,6 +120,7 @@
       border-top-right-radius: 3.5rem;
       position: relative;
       isolation: isolate;
+      transition: background-image 1s ease-in-out;
     }
 
     #hero::after {
@@ -244,17 +244,6 @@
       font-size: 1.1rem;
     }
 
-    .site-footer a {
-      color: #bbd1ff;
-      text-decoration: none;
-      border-bottom: 1px dotted #5377b0;
-      margin: 0 6px;
-    }
-    .site-footer a:hover {
-      color: white;
-      border-bottom-color: white;
-    }
-
     /* extra floating layer (depth signature) */
     .hover-layer-extra {
       position: absolute;
@@ -320,7 +309,7 @@
     <!-- LAYER 3: main glass content -->
     <div class="layer-content">
 
-      <!-- header (consistent with index, but no rotation needed on about page) -->
+      <!-- header with rotating backgrounds (NOW FIXED) -->
       <header id="hero">
         <h1>Dr. Taqmeem Bibi</h1>
         <p><i class="fa-regular fa-user-graduate"></i> Mathematics Researcher | Computational Fluid Dynamics</p>
@@ -335,13 +324,13 @@
         <a href="Contact.html">Contact</a>
       </nav>
 
-      <!-- main container with your about text (fully preserved) -->
+      <!-- main container with your about text -->
       <div class="container">
         <div class="about-card">
           <h2><i class="fa-regular fa-address-card"></i> About Me</h2>
           <p>I am a PhD scholar at Beijing Forestry University, Beijing, China, with research interests in applied mathematics and fluid mechanics. My work focuses on the numerical analysis of linear and nonlinear partial differential equations (PDEs), particularly in the study of hybrid nanofluids, entropy generation, and heat and mass transfer processes. Through my research, I aim to contribute to the development of efficient and sustainable energy systems using advanced mathematical modeling and computational techniques.</p>
 
-          <p>I completed my Bachelor’s degree from the University of the Punjab, Lahore, followed by a Master’s degree in Mathematics from Riphah International University, Islamabad. Later, I earned my M.Phil. in Mathematics from Capital University of Science and Technology (CUST), Islamabad. My M.Phil. research focused on the analysis of hybrid nanofluid flow containing motile microorganisms under the Cattaneo–Christov double diffusion model, where I applied numerical methods to study complex fluid flow phenomena.</p>
+          <p>I completed my Bachelor's degree from the University of the Punjab, Lahore, followed by a Master's degree in Mathematics from Riphah International University, Islamabad. Later, I earned my M.Phil. in Mathematics from Capital University of Science and Technology (CUST), Islamabad. My M.Phil. research focused on the analysis of hybrid nanofluid flow containing motile microorganisms under the Cattaneo–Christov double diffusion model, where I applied numerical methods to study complex fluid flow phenomena.</p>
 
           <p>Currently, my doctoral research involves the development and application of advanced numerical techniques to analyze nonlinear fluid flow systems and heat transfer mechanisms. I regularly use scientific computing tools such as MATLAB, Mathematica, and LaTeX for modeling, simulation, and research documentation.</p>
 
@@ -349,18 +338,41 @@
         </div>
       </div>
 
-      <!-- footer (simple, matching your style) -->
+      <!-- footer -->
       <footer class="site-footer">
         <p>© 2026 Dr. Taqmeem Bibi | All Rights Reserved</p>
       </footer>
     </div> <!-- end layer-content -->
 
-    <!-- LAYER 4: hidden floating element (depth signature) -->
+    <!-- LAYER 4: hidden floating element -->
     <div class="hover-layer-extra">
       <i class="fa-regular fa-gem"></i>
       <span>multilayer · about stratum</span>
     </div>
 
   </div> <!-- end multilayer -->
+
+  <!-- ROTATING BACKGROUND SCRIPT (ADDED BACK) -->
+  <script>
+    const images = [
+      "fluid1.jpg",
+      "fluid2.png",
+      "fluid3.png",
+      "fluid4.jpg"
+    ];
+
+    let i = 0;
+
+    function changeBackground() {
+      document.getElementById("hero").style.backgroundImage = "url('" + images[i] + "')";
+      i++;
+      if (i >= images.length) {
+        i = 0;
+      }
+    }
+
+    setInterval(changeBackground, 3000);
+    changeBackground(); // initial call
+  </script>
 </body>
 </html>
