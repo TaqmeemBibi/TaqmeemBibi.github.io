@@ -30,7 +30,7 @@
       right: 50%;
       margin-left: -50vw;
       margin-right: -50vw;
-      height: 350px;
+      height: 300px;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -69,6 +69,10 @@
       text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
     }
 
+    .hero p i {
+      margin-right: 8px;
+    }
+
     /* navigation - full width */
     .nav-bar {
       width: 100vw;
@@ -100,7 +104,7 @@
       color: white;
     }
 
-    /* main container - FIXED WITH PROPER PADDING */
+    /* main container */
     .container {
       width: 100%;
       max-width: 1200px;
@@ -115,6 +119,7 @@
       padding: 30px;
       margin: 30px 0;
       box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      width: 100%;
     }
 
     .welcome-card h2 {
@@ -166,14 +171,21 @@
       margin: 30px 0;
     }
 
-    /* left column cards - FIXED MARGIN ISSUE */
+    /* left column cards - FIXED PADDING ISSUE */
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+    }
+
     .card {
       background: white;
       border-radius: 15px;
       padding: 25px;
-      margin-bottom: 30px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-      width: 100%; /* Ensure full width */
+      width: 100%;
+      margin: 0; /* Remove any default margin */
     }
 
     .card h3 {
@@ -293,13 +305,20 @@
       font-size: 0.9rem;
     }
 
-    /* RIGHT COLUMN - PROFILES SECTION (NOW VISIBLE) */
+    /* RIGHT COLUMN */
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+    }
+
     .profile-section {
       background: white;
       border-radius: 15px;
       padding: 25px;
-      margin-bottom: 30px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      width: 100%;
     }
 
     .profile-section h3 {
@@ -351,12 +370,13 @@
       font-weight: 500;
     }
 
-    /* RESEARCH AREAS SECTION (NOW VISIBLE) */
+    /* RESEARCH AREAS SECTION */
     .research-section {
       background: white;
       border-radius: 15px;
       padding: 25px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      width: 100%;
     }
 
     .research-section h3 {
@@ -503,7 +523,7 @@
 
     <!-- MAIN CONTENT - TWO COLUMNS -->
     <div class="main-content">
-      <!-- LEFT COLUMN - FIXED MARGIN ISSUE -->
+      <!-- LEFT COLUMN - FIXED SYMMETRICAL PADDING -->
       <div class="left-column">
         <!-- Top Coauthors Card -->
         <div class="card">
@@ -560,6 +580,13 @@
                 <p>Cattaneo-Christov heat flux model</p>
               </div>
             </div>
+            <div class="journal-entry">
+              <i class="fa-regular fa-file-lines"></i>
+              <div class="journal-details">
+                <h4>Energies (2023)</h4>
+                <p>Nanofluid stability analysis</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -587,11 +614,16 @@
               <div class="event-title">Hybrid Nanofluids Workshop</div>
               <div class="event-location">Online</div>
             </div>
+            <div class="event-box">
+              <div class="event-date"><i class="fa-regular fa-calendar"></i> Dec 10-12</div>
+              <div class="event-title">Intl. Congress of Mathematicians</div>
+              <div class="event-location">Shanghai, China</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT COLUMN - NOW VISIBLE WITH PROFILES AND RESEARCH AREAS -->
+      <!-- RIGHT COLUMN -->
       <div class="right-column">
         <!-- Profiles Section -->
         <div class="profile-section">
