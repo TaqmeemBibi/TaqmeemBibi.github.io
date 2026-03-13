@@ -22,22 +22,18 @@
       overflow-x: hidden;
     }
 
-    /* main container - proper width */
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    /* HEADER - FIXED FULL WIDTH */
+    /* HEADER - FULL WIDTH NO BORDER RADIUS */
     .hero {
-      width: 100%;
-      height: 300px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      width: 100vw;  /* full viewport width */
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      height: 350px;
       background-size: cover;
       background-position: center;
-      border-radius: 20px 20px 0 0;
+      background-repeat: no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -55,28 +51,46 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
-      border-radius: 20px 20px 0 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
     }
 
     .hero h1 {
       position: relative;
-      z-index: 1;
-      font-size: 3.5rem;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      z-index: 2;
+      font-size: 4rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      letter-spacing: 1px;
     }
 
     .hero p {
       position: relative;
-      z-index: 1;
-      font-size: 1.5rem;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      z-index: 2;
+      font-size: 1.8rem;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+    }
+
+    .hero p i {
+      margin-right: 8px;
+    }
+
+    /* main container - now starts after full-width header */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
     }
 
     /* navigation - full width */
     .nav-bar {
-      width: 100%;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
       background: white;
       padding: 15px 0;
       display: flex;
@@ -284,7 +298,7 @@
       font-size: 0.9rem;
     }
 
-    /* RIGHT COLUMN - PROFILES AND RESEARCH AREAS (NOW VISIBLE) */
+    /* RIGHT COLUMN */
     .profile-section {
       background: white;
       border-radius: 15px;
@@ -397,15 +411,20 @@
       color: white;
     }
 
-    /* footer */
+    /* footer - full width */
     .footer {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
       background: white;
-      border-radius: 15px;
       padding: 25px;
       margin-top: 30px;
       text-align: center;
       color: #666;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
     }
 
     /* responsive */
@@ -415,11 +434,11 @@
       }
       
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
       }
       
       .hero p {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
       
       .nav-bar {
@@ -431,6 +450,10 @@
     @media (max-width: 480px) {
       .hero h1 {
         font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
       }
       
       .stats-grid {
@@ -445,23 +468,24 @@
   </style>
 </head>
 <body>
+  <!-- HEADER - FULL WIDTH NO CUT OFF -->
+  <div class="hero" id="hero">
+    <h1>Dr. Taqmeem Bibi</h1>
+    <p><i class="fa-regular fa-at"></i> Mathematics · CFD · Nanofluids</p>
+  </div>
+
+  <!-- NAVIGATION - FULL WIDTH -->
+  <div class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="About.html">About</a>
+    <a href="Publications.html">Publications</a>
+    <a href="Research.html">Research</a>
+    <a href="CV.html">CV</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+
+  <!-- MAIN CONTAINER -->
   <div class="container">
-    <!-- HEADER - FULL WIDTH WITHIN CONTAINER -->
-    <div class="hero">
-      <h1>Dr. Taqmeem Bibi</h1>
-      <p><i class="fa-regular fa-at"></i> Mathematics · CFD · Nanofluids</p>
-    </div>
-
-    <!-- NAVIGATION -->
-    <div class="nav-bar">
-      <a href="index.html">Home</a>
-      <a href="About.html">About</a>
-      <a href="Publications.html">Publications</a>
-      <a href="Research.html">Research</a>
-      <a href="CV.html">CV</a>
-      <a href="Contact.html">Contact</a>
-    </div>
-
     <!-- WELCOME SECTION -->
     <div class="welcome-card">
       <h2>
@@ -572,7 +596,7 @@
         </div>
       </div>
 
-      <!-- RIGHT COLUMN - PROFILES AND RESEARCH AREAS (NOW VISIBLE) -->
+      <!-- RIGHT COLUMN -->
       <div class="right-column">
         <!-- Profiles Section -->
         <div class="profile-section">
@@ -628,17 +652,33 @@
         </div>
       </div>
     </div>
-
-    <!-- FOOTER -->
-    <div class="footer">
-      <p>© 2026 Dr. Taqmeem Bibi · Department of Mathematics · Beijing Forestry University, China</p>
-    </div>
   </div>
 
-  <!-- Script for rotating header background (optional - you can add your images) -->
+  <!-- FOOTER - FULL WIDTH -->
+  <div class="footer">
+    <p>© 2026 Dr. Taqmeem Bibi · Department of Mathematics · Beijing Forestry University, China</p>
+  </div>
+
+  <!-- Rotating header script -->
   <script>
-    // You can add your rotating background script here if needed
-    // For now using gradient background
+    const images = [
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80"
+    ];
+
+    let i = 0;
+    function changeBackground() {
+      const hero = document.getElementById("hero");
+      hero.style.backgroundImage = `url('${images[i]}')`;
+      i = (i + 1) % images.length;
+    }
+    
+    // Initial call
+    changeBackground();
+    // Change every 3 seconds
+    setInterval(changeBackground, 3000);
   </script>
 </body>
 </html>
