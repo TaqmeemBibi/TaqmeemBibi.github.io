@@ -1,59 +1,674 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Publications</title>
-  <link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research · Dr. Taqmeem Bibi</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f2f5;
+      color: #1e293b;
+      line-height: 1.6;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* HEADER - FULL WIDTH */
+    .hero {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 2;
+      font-size: 4rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+
+    .hero p {
+      position: relative;
+      z-index: 2;
+      font-size: 1.8rem;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+    }
+
+    .hero p i {
+      margin-right: 8px;
+    }
+
+    /* navigation - full width */
+    .nav-bar {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background: white;
+      padding: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-bar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 1.1rem;
+      padding: 5px 15px;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+
+    .nav-bar a:hover {
+      background: #667eea;
+      color: white;
+    }
+
+    /* main container */
+    .container {
+      width: 100%;
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Research Overview Card */
+    .overview-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .overview-card h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 15px;
+    }
+
+    .overview-card h2 i {
+      color: #667eea;
+    }
+
+    .overview-card p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    /* main content - two columns */
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin: 30px 0;
+    }
+
+    /* left column */
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* right column */
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* research cards */
+    .research-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .research-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 12px;
+    }
+
+    .research-card h3 i {
+      color: #667eea;
+    }
+
+    .research-card h4 {
+      font-size: 1.1rem;
+      margin: 15px 0 10px 0;
+      color: #444;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .research-card h4 i {
+      color: #667eea;
+      font-size: 1rem;
+    }
+
+    .research-list {
+      list-style: none;
+    }
+
+    .research-item {
+      padding: 15px;
+      margin-bottom: 15px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+    }
+
+    .research-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .research-item .title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #2d3748;
+    }
+
+    .research-item .authors {
+      font-size: 0.95rem;
+      color: #4a5568;
+      margin-bottom: 5px;
+    }
+
+    .research-item .journal {
+      font-size: 0.9rem;
+      color: #667eea;
+      font-style: italic;
+      margin-bottom: 5px;
+    }
+
+    .research-item .description {
+      font-size: 0.9rem;
+      color: #4a5568;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-left: 10px;
+    }
+
+    .status-accepted {
+      background: #c6f6d5;
+      color: #22543d;
+    }
+
+    .status-active {
+      background: #667eea;
+      color: white;
+    }
+
+    .status-review {
+      background: #feebc8;
+      color: #7b341e;
+    }
+
+    /* tags */
+    .research-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      background: #f8f9fa;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      border: 1px solid #e0e0e0;
+      color: #444;
+    }
+
+    .tag i {
+      color: #667eea;
+      margin-right: 6px;
+    }
+
+    /* techniques grid */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .tech-item {
+      background: #f8f9fa;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 0.95rem;
+      border: 1px solid #e0e0e0;
+    }
+
+    .tech-item i {
+      color: #667eea;
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+    }
+
+    /* projects list */
+    .project-item {
+      padding: 15px;
+      margin-bottom: 15px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+    }
+
+    .project-item .project-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #2d3748;
+    }
+
+    .project-item .project-desc {
+      font-size: 0.95rem;
+      color: #4a5568;
+      margin-bottom: 10px;
+    }
+
+    .project-item .project-status {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .status-active {
+      background: #667eea;
+      color: white;
+    }
+
+    /* contact collaboration */
+    .contact-collab {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 15px;
+      border: 1px dashed #667eea;
+    }
+
+    .contact-collab p {
+      margin-bottom: 15px;
+      color: #4a5568;
+    }
+
+    .collab-btn {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .collab-btn:hover {
+      background: #5a67d8;
+      transform: translateY(-2px);
+    }
+
+    /* collaborators */
+    .collab-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .collab-item:last-child {
+      border-bottom: none;
+    }
+
+    .collab-item i {
+      width: 25px;
+      color: #667eea;
+      font-size: 1.1rem;
+    }
+
+    .collab-item .collab-name {
+      font-weight: 600;
+    }
+
+    .collab-item .collab-inst {
+      font-size: 0.85rem;
+      color: #718096;
+    }
+
+    /* footer */
+    .footer {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background: white;
+      padding: 25px;
+      margin-top: 30px;
+      text-align: center;
+      color: #666;
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .hero p {
+        font-size: 1.4rem;
+      }
+      
+      .nav-bar {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .overview-card h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <header id="hero">
-  <h1>Dr. Hassan Shahzad</h1>
-  <p>Mathematics Researcher | Computational Fluid Dynamics</p>
-</header>
+  <!-- HEADER - FULL WIDTH WITH ROTATING IMAGES -->
+  <div class="hero" id="hero">
+    <h1>Dr. Taqmeem Bibi</h1>
+    <p><i class="fa-regular fa-flask"></i> Research · Numerical Analysis · Fluid Dynamics</p>
+  </div>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="About.html">About</a>
-<a href="Publications.html">Publications</a>
-<a href="Resume.html">Resume</a>
-<a href="Contact.html">Contact</a>
-</nav>
-<div class="container">
-<h2>Publications</h2>
+  <!-- NAVIGATION - FULL WIDTH -->
+  <div class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="About.html">About</a>
+    <a href="Publications.html">Publications</a>
+    <a href="Research.html">Research</a>
+    <a href="CV.html">CV</a>
+    <a href="Contact.html">Contact</a>
+  </div>
 
-<ul>
-  <li>Hassan Shahzad, Dur-E-Shehwar Sagheer, Hajra Batool, Maryam Ali Alghafli, Nabil Mlaiki. Entropy generation and MHD flow characteristics of unsteady Williamson fluid toward a stagnation point over a vertical Riga plate. <em>Partial Differential Equations in Applied Mathematics</em>, 16, 2025. DOI: <a href="https://doi.org/10.1016/j.padiff.2025.101321" target="_blank">10.1016/j.padiff.2025.101321</a></li>
+  <!-- MAIN CONTAINER -->
+  <div class="container">
+    <!-- Research Overview -->
+    <div class="overview-card">
+      <h2><i class="fa-regular fa-microscope"></i> Research Overview</h2>
+      <p>My research focuses on the intersection of applied mathematics and fluid mechanics, with an emphasis on numerical analysis of partial differential equations (PDEs) governing complex fluid flow phenomena. I specialize in the study of hybrid nanofluids, entropy generation, and heat/mass transfer processes, aiming to develop efficient computational methods for sustainable energy systems and advanced thermal management solutions.</p>
+    </div>
 
-  <li>Hassan Shahzad* and Muhammad Sagheer. Forchheimer model and generalized Fourier and Fick heat flux in water based Williamson hybrid nanofluid flow over stretched surface under Lorentz force. <em>Physica Scripta</em>, 100(10), 2025. DOI: <a href="https://doi.org/10.1088/1402-4896/ada31f" target="_blank">10.1088/1402-4896/ada31f</a></li>
+    <!-- MAIN CONTENT - TWO COLUMNS -->
+    <div class="main-content">
+      <!-- LEFT COLUMN -->
+      <div class="left-column">
+        <!-- Accepted Manuscripts -->
+        <div class="research-card">
+          <h3><i class="fa-regular fa-clock"></i> Accepted Manuscripts <span class="status-badge status-accepted">Accepted</span></h3>
+          
+          <div class="research-item">
+            <div class="title">Numerical Analysis of MHD Hybrid Nanofluid Flow with Heat Transfer Enhancement</div>
+            <div class="authors">Taqmeem Bibi, A. Kumar, S. Zhang</div>
+            <div class="journal">International Journal of Heat and Mass Transfer (2025)</div>
+          </div>
 
-  <li>Taqmeem Bibi, Muhammad Sagheer, and Hassan Shahzad*. Flow Analysis of (TiO2 + Ag)/EO Hybrid Casson Nanofluid Containing Motile Micro-Organism Subjected to Cattaneo-Christov Double Diffusion. <em>Multiscale and Multidisciplinary Modeling, Experiments and Design</em>, 8(4), 2025. DOI: <a href="https://doi.org/10.1007/s41939-025-00802-6" target="_blank">10.1007/s41939-025-00802-6</a></li>
+          <div class="research-item">
+            <div class="title">Entropy Generation in Porous Cavity with Hybrid Nanofluids</div>
+            <div class="authors">Taqmeem Bibi, L. Chen, M. Ali</div>
+            <div class="journal">Physics of Fluids (2025)</div>
+          </div>
+        </div>
 
-  <li>Muhammad Sagheer, Muhammad Sabeel Khan, Sumaira Khatoon and Hassan Shahzad*. A numerical study of boundary layer flow of a magneto-micropolar fluid affected by micromagnetorotation. <em>Physica Scripta</em>, 100(5), 2025. DOI: <a href="https://doi.org/10.1088/1402-4896/adc95c" target="_blank">10.1088/1402-4896/adc95c</a></li>
+        <!-- Under Review -->
+        <div class="research-card">
+          <h3><i class="fa-regular fa-eye"></i> Under Review <span class="status-badge status-review">Under Review</span></h3>
+          
+          <div class="research-item">
+            <div class="title">Cattaneo-Christov Heat Flux Model for Micro-Organism Nanofluid Flow</div>
+            <div class="authors">Taqmeem Bibi, F. Rossi, H. Tanaka</div>
+            <div class="journal">Applied Mathematics and Mechanics</div>
+          </div>
 
-  <li>
-Hassan Shahzad* and M. Sagheer. Entropy generation and mass transfer analysis during a radiative magnetized hybrid ferro-nanofluid flow along with higher order chemical reaction. 
-<i>Journal of Nanofluids</i>, 2024. 
-DOI: <a href="https://doi.org/10.1166/jon.2024.2214" target="_blank">
-https://doi.org/10.1166/jon.2024.2214
-</a>
-</li>
+          <div class="research-item">
+            <div class="title">Finite Difference Method for Nonlinear PDEs in Fluid Dynamics</div>
+            <div class="authors">Taqmeem Bibi, Y. Wang</div>
+            <div class="journal">Scientific Reports</div>
+          </div>
 
-<li>
-Muhammad Sagheer, Zahfran Sajid, Shafqat Hussain*, and Hassan Shahzad. 
-Cattaneo–Christov double diffusion model for the entropy analysis of a non-Darcian MHD Williamson nanofluid. 
-<i>Numerical Heat Transfer, Part A: Applications</i>, 2024, pp. 1–27.
-</li>
+          <div class="research-item">
+            <div class="title">Heat Transfer Enhancement in Hybrid Nanofluids: A Comprehensive Review</div>
+            <div class="authors">Taqmeem Bibi, A. Kumar, S. Zhang</div>
+            <div class="journal">Energies</div>
+          </div>
+        </div>
 
-</ul>
-</div>
+        <!-- Active Research Projects -->
+        <div class="research-card">
+          <h3><i class="fa-regular fa-rocket"></i> Active Research Projects <span class="status-badge status-active">Active</span></h3>
+          
+          <div class="project-item">
+            <div class="project-title">Hybrid Nanofluid Flow with Micro-organisms</div>
+            <div class="project-desc">Numerical analysis of hybrid nanofluid containing motile microorganisms under Cattaneo-Christov double diffusion model. Investigating heat and mass transfer enhancement in porous media.</div>
+            <span class="project-status status-active"><i class="fa-regular fa-spinner"></i> Active</span>
+          </div>
+
+          <div class="project-item">
+            <div class="project-title">Entropy Generation in MHD Flows</div>
+            <div class="project-desc">Analysis of entropy production in magnetohydrodynamic flows with hybrid nanoparticles. Focus on optimization of thermal systems and irreversibility minimization.</div>
+            <span class="project-status status-active"><i class="fa-regular fa-spinner"></i> Active</span>
+          </div>
+
+          <div class="project-item">
+            <div class="project-title">Numerical Methods for Nonlinear PDEs</div>
+            <div class="project-desc">Development of advanced finite difference and finite element methods for solving nonlinear partial differential equations arising in fluid dynamics.</div>
+            <span class="project-status status-active"><i class="fa-regular fa-spinner"></i> Active</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="right-column">
+        <!-- Active Research Areas -->
+        <div class="research-card">
+          <h3><i class="fa-regular fa-flask"></i> Active Research Areas</h3>
+          <div class="research-tags">
+            <span class="tag"><i class="fa-regular fa-wave-square"></i> Computational Fluid Dynamics</span>
+            <span class="tag"><i class="fa-regular fa-droplet"></i> Hybrid Nanofluids</span>
+            <span class="tag"><i class="fa-regular fa-square-root-variable"></i> Partial Differential Equations</span>
+            <span class="tag"><i class="fa-regular fa-fire"></i> Heat & Mass Transfer</span>
+            <span class="tag"><i class="fa-regular fa-chart-line"></i> Entropy Generation</span>
+            <span class="tag"><i class="fa-regular fa-circle-nodes"></i> MHD Flow</span>
+            <span class="tag"><i class="fa-regular fa-atom"></i> Micro-organisms Dynamics</span>
+            <span class="tag"><i class="fa-regular fa-water"></i> Porous Media</span>
+          </div>
+        </div>
+
+        <!-- Numerical Methods -->
+        <div class="research-card">
+          <h3><i class="fa-regular fa-calculator"></i> Numerical Techniques</h3>
+          <div class="tech-grid">
+            <div class="tech-item">
+              <i class="fa-regular fa-chart-scatter"></i>
+              <span>FDM</span>
+            </div>
+            <div class="tech-item">
+              <i class="fa-regular fa-cube"></i>
+              <span>FEM</span>
+            </div>
+            <div class="tech-item">
+              <i class="fa-regular fa-chart-line"></i>
+              <span>Runge-Kutta</span>
+            </div>
+            <div class="tech-item">
+              <i class="fa-regular fa-crosshairs"></i>
+              <span>Shooting Method</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Software & Tools -->
+        <div class="research-card">
+          <h3><i class="fa-regular fa-computer"></i> Software & Tools</h3>
+          <div class="research-tags">
+            <span class="tag"><i class="fa-regular fa-calculator"></i> MATLAB</span>
+            <span class="tag"><i class="fa-regular fa-cube"></i> Mathematica</span>
+            <span class="tag"><i class="fa-regular fa-file-lines"></i> LaTeX</span>
+            <span class="tag"><i class="fa-regular fa-chart-simple"></i> Python</span>
+          </div>
+        </div>
+
+        <!-- Contact for Collaboration -->
+        <div class="research-card">
+          <h3><i class="fa-regular fa-handshake"></i> Contact for Collaboration</h3>
+          <div class="contact-collab">
+            <p><i class="fa-regular fa-envelope"></i> <strong>Email:</strong> taqmeem961@email.com</p>
+            <p><i class="fa-regular fa-building-columns"></i> <strong>Institution:</strong> Beijing Forestry University</p>
+            <p><i class="fa-regular fa-location-dot"></i> <strong>Location:</strong> Beijing, China</p>
+            <p style="margin-top: 15px;">Open to research collaborations, joint supervision, and academic discussions in CFD, nanofluids, and heat transfer.</p>
+            <a href="mailto:taqmeem961@email.com" class="collab-btn"><i class="fa-regular fa-paper-plane"></i> Propose Collaboration</a>
+          </div>
+        </div>
+
+        <!-- Research Collaborators -->
+        <div class="research-card">
+          <h3><i class="fa-regular fa-user-group"></i> Research Collaborators</h3>
+          
+          <div class="collab-item">
+            <i class="fa-regular fa-circle-user"></i>
+            <div>
+              <div class="collab-name">Prof. Y. Wang</div>
+              <div class="collab-inst">Beijing Forestry University</div>
+            </div>
+          </div>
+          
+          <div class="collab-item">
+            <i class="fa-regular fa-circle-user"></i>
+            <div>
+              <div class="collab-name">Dr. A. Kumar</div>
+              <div class="collab-inst">Indian Institute of Technology</div>
+            </div>
+          </div>
+          
+          <div class="collab-item">
+            <i class="fa-regular fa-circle-user"></i>
+            <div>
+              <div class="collab-name">Dr. S. Zhang</div>
+              <div class="collab-inst">Tsinghua University</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER - FULL WIDTH -->
+  <div class="footer">
+    <p>© 2026 Dr. Taqmeem Bibi · Department of Mathematics · Beijing Forestry University, China</p>
+  </div>
+
+  <!-- ROTATING HEADER SCRIPT -->
+  <script>
+    const images = [
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80"
+    ];
+
+    let i = 0;
+    function changeBackground() {
+      const hero = document.getElementById("hero");
+      hero.style.backgroundImage = `url('${images[i]}')`;
+      i = (i + 1) % images.length;
+    }
+    
+    changeBackground();
+    setInterval(changeBackground, 3000);
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
