@@ -20,39 +20,46 @@
       line-height: 1.5;
     }
 
-    /* Header */
+    /* Simple header */
     .hero {
       width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      height: 250px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       color: white;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
     }
 
     .hero h1 {
-      font-size: 2.5rem;
+      position: relative;
+      z-index: 1;
+      font-size: 3rem;
       margin-bottom: 0.5rem;
     }
 
     .hero p {
-      font-size: 1.2rem;
-    }
-
-    /* Math equation */
-    .math-equation {
-      background: white;
-      padding: 1rem;
-      text-align: center;
+      position: relative;
+      z-index: 1;
       font-size: 1.3rem;
-      border-bottom: 1px solid #e2e8f0;
-      font-family: 'Courier New', monospace;
     }
 
-    /* Navigation */
+    /* Simple navigation */
     .nav-bar {
       background: white;
       padding: 0.8rem 0;
@@ -69,6 +76,7 @@
       font-size: 0.95rem;
       padding: 0.4rem 1rem;
       border-radius: 6px;
+      transition: all 0.2s;
     }
 
     .nav-bar a:hover {
@@ -76,26 +84,34 @@
       color: white;
     }
 
-    /* Main container - CRITICAL: fixed width */
+    /* Main container - smaller width */
     .container {
-      max-width: 800px;  /* Fixed width - not too wide */
-      margin: 1.5rem auto;
-      padding: 0 1rem;
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 1.2rem;
     }
 
-    /* Welcome card */
+    /* Welcome card - smaller */
     .welcome-card {
       background: white;
       border-radius: 10px;
       padding: 1.5rem;
       margin-bottom: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
     .welcome-card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
       color: #2d3748;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .welcome-card h2 i {
+      color: #667eea;
+      font-size: 1.5rem;
     }
 
     .welcome-card p {
@@ -125,27 +141,27 @@
       margin-right: 0.3rem;
     }
 
-    /* Two column layout - balanced */
+    /* Two column layout - tighter gap */
     .two-column {
       display: grid;
-      grid-template-columns: 1fr 1fr;  /* Equal columns */
-      gap: 1rem;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 1.2rem;
     }
 
-    /* Cards */
+    /* Cards - smaller padding */
     .card {
       background: white;
       border-radius: 10px;
       padding: 1.2rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
     .card-header {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 600;
       margin-bottom: 1rem;
       padding-bottom: 0.6rem;
@@ -155,9 +171,114 @@
 
     .card-header i {
       color: #667eea;
+      font-size: 1.1rem;
     }
 
-    /* Profile list */
+    /* Coauthor slider - smaller items */
+    .slider-container {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 0.6rem;
+      animation: scroll 25s linear infinite;
+      width: fit-content;
+    }
+
+    .coauthor-chip {
+      background: #f7fafc;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid #e2e8f0;
+      white-space: nowrap;
+      font-size: 0.85rem;
+    }
+
+    .coauthor-chip i {
+      color: #667eea;
+      font-size: 0.85rem;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Publications list - smaller */
+    .pub-list {
+      max-height: 250px;
+      overflow-y: auto;
+    }
+
+    .pub-item {
+      display: flex;
+      gap: 0.6rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #f0f4f8;
+    }
+
+    .pub-item:last-child {
+      border-bottom: none;
+    }
+
+    .pub-item i {
+      color: #667eea;
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+      min-width: 1rem;
+    }
+
+    .pub-details h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+      color: #2d3748;
+    }
+
+    .pub-details p {
+      font-size: 0.8rem;
+      color: #718096;
+    }
+
+    /* Events slider - smaller cards */
+    .events-slider {
+      display: flex;
+      gap: 0.8rem;
+      overflow-x: auto;
+      padding: 0.2rem 0 0.8rem 0;
+    }
+
+    .event-card {
+      min-width: 180px;
+      background: #f7fafc;
+      border-radius: 8px;
+      padding: 1rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .event-date {
+      color: #667eea;
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .event-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .event-location {
+      font-size: 0.75rem;
+      color: #718096;
+    }
+
+    /* Profile list - smaller */
     .profile-list {
       margin-top: 0.3rem;
     }
@@ -178,6 +299,7 @@
     .profile-item i {
       width: 1rem;
       color: #667eea;
+      font-size: 0.9rem;
     }
 
     .profile-item a {
@@ -185,33 +307,15 @@
       color: #4a5568;
     }
 
+    .profile-item a:hover {
+      color: #667eea;
+    }
+
     .profile-item span {
       color: #4a5568;
     }
 
-    /* Coauthor chips */
-    .coauthor-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .coauthor-chip {
-      background: #f7fafc;
-      padding: 0.3rem 0.8rem;
-      border-radius: 30px;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      border: 1px solid #e2e8f0;
-      font-size: 0.8rem;
-    }
-
-    .coauthor-chip i {
-      color: #667eea;
-    }
-
-    /* Research tags */
+    /* Research tags - smaller */
     .tags-container {
       display: flex;
       flex-wrap: wrap;
@@ -231,59 +335,89 @@
     .footer {
       background: white;
       padding: 1.2rem;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
       text-align: center;
       border-top: 1px solid #e2e8f0;
       color: #718096;
       font-size: 0.85rem;
     }
 
+    /* Scrollbar styling */
+    .pub-list::-webkit-scrollbar,
+    .events-slider::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+
+    .pub-list::-webkit-scrollbar-track,
+    .events-slider::-webkit-scrollbar-track {
+      background: #f0f4f8;
+      border-radius: 4px;
+    }
+
+    .pub-list::-webkit-scrollbar-thumb,
+    .events-slider::-webkit-scrollbar-thumb {
+      background: #667eea;
+      border-radius: 4px;
+    }
+
     /* Responsive */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .two-column {
         grid-template-columns: 1fr;
       }
       
       .hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
       }
       
       .nav-bar {
         flex-wrap: wrap;
         gap: 0.5rem;
+        padding: 0.6rem;
+      }
+      
+      .nav-bar a {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.8rem;
       }
     }
   </style>
 </head>
 <body>
   <!-- Header -->
-  <div class="hero">
+  <div class="hero" id="hero">
     <h1>Dr. Taqmeem Bibi</h1>
     <p><i class="fa-regular fa-at"></i> Mathematics · CFD · Nanofluids</p>
   </div>
 
-  <!-- Math Equation -->
-  <div class="math-equation">
-    Q_total = Q₁ + Q₂ = 3ε₀ (S/d) U₀
-  </div>
-
   <!-- Navigation -->
   <div class="nav-bar">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Publications</a>
-    <a href="#">Research</a>
-    <a href="#">CV</a>
-    <a href="#">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="publications.html">Publications</a>
+    <a href="research.html">Research</a>
+    <a href="cv.html">CV</a>
+    <a href="contact.html">Contact</a>
   </div>
 
-  <!-- Main Container - FIXED WIDTH -->
+  <!-- Main Content -->
   <div class="container">
-    <!-- Welcome Card -->
+    <!-- Welcome Section -->
     <div class="welcome-card">
-      <h2>Welcome to My Research Profile</h2>
-      <p>I am at Beijing Forestry University, Beijing, China, specializing in applied mathematics and computational fluid dynamics. My research focuses on numerical analysis of partial differential equations, hybrid nanofluids, entropy generation, and heat transfer processes.</p>
-      
+      <h2>
+        <i class="fa-regular fa-hand-peace"></i>
+        Welcome to My Research Profile
+      </h2>
+      <p>
+        I am a PhD scholar at Beijing Forestry University, Beijing, China, specializing in applied mathematics 
+        and computational fluid dynamics. My research focuses on numerical analysis of partial differential equations, 
+        hybrid nanofluids, entropy generation, and heat/mass transfer processes.
+      </p>
       <div class="stats-row">
         <span class="stat-badge"><i class="fa-regular fa-file-lines"></i> 18+ Publications</span>
         <span class="stat-badge"><i class="fa-regular fa-users"></i> 12+ Coauthors</span>
@@ -295,45 +429,101 @@
     <!-- Two Column Layout -->
     <div class="two-column">
       <!-- Left Column -->
-      <div>
-        <!-- Top Coauthors Card -->
+      <div class="left-col">
+        <!-- Top Coauthors - REDUCED WIDTH -->
         <div class="card">
           <div class="card-header">
             <i class="fa-regular fa-users"></i>
             <span>Top Coauthors</span>
           </div>
-          <div class="coauthor-container">
-            <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. Y. Wang</span>
-            <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. A. Kumar</span>
-            <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. S. Zhang</span>
-            <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. L. Chen</span>
-            <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. M. Ali</span>
-            <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. F. Rossi</span>
-            <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. H. Tanaka</span>
+          <div class="slider-container">
+            <div class="slider-track">
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. Y. Wang</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. A. Kumar</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. S. Zhang</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. L. Chen</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. M. Ali</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. F. Rossi</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. H. Tanaka</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. Y. Wang</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. A. Kumar</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. S. Zhang</span>
+            </div>
           </div>
         </div>
 
-        <!-- Research Areas Card -->
+        <!-- Recent Publications - REDUCED WIDTH -->
         <div class="card">
           <div class="card-header">
-            <i class="fa-regular fa-flask"></i>
-            <span>Research Areas</span>
+            <i class="fa-regular fa-book-open"></i>
+            <span>Recent Publications</span>
           </div>
-          <div class="tags-container">
-            <span class="tag">CFD</span>
-            <span class="tag">Nanofluids</span>
-            <span class="tag">PDEs</span>
-            <span class="tag">Heat Transfer</span>
-            <span class="tag">Entropy</span>
-            <span class="tag">MATLAB</span>
-            <span class="tag">Mathematica</span>
+          <div class="pub-list">
+            <div class="pub-item">
+              <i class="fa-regular fa-file-lines"></i>
+              <div class="pub-details">
+                <h4>Physics of Fluids (2025)</h4>
+                <p>Hybrid nanofluid with micro-organisms</p>
+              </div>
+            </div>
+            <div class="pub-item">
+              <i class="fa-regular fa-file-lines"></i>
+              <div class="pub-details">
+                <h4>Int. J. Heat Mass Transfer (2024)</h4>
+                <p>Entropy generation in porous cavity</p>
+              </div>
+            </div>
+            <div class="pub-item">
+              <i class="fa-regular fa-file-lines"></i>
+              <div class="pub-details">
+                <h4>Scientific Reports (2024)</h4>
+                <p>Numerical analysis of MHD flow</p>
+              </div>
+            </div>
+            <div class="pub-item">
+              <i class="fa-regular fa-file-lines"></i>
+              <div class="pub-details">
+                <h4>Appl. Math & Mechanics (2023)</h4>
+                <p>Cattaneo-Christov heat flux model</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Special Events - REDUCED WIDTH -->
+        <div class="card">
+          <div class="card-header">
+            <i class="fa-regular fa-calendar-star"></i>
+            <span>Special Events 2025</span>
+          </div>
+          <div class="events-slider">
+            <div class="event-card">
+              <div class="event-date"><i class="fa-regular fa-calendar"></i> May 12-14</div>
+              <div class="event-title">ICHMT Heat Transfer</div>
+              <div class="event-location">Istanbul, Turkey</div>
+            </div>
+            <div class="event-card">
+              <div class="event-date"><i class="fa-regular fa-calendar"></i> Jun 20-22</div>
+              <div class="event-title">ICNMM Micro/Nanofluidics</div>
+              <div class="event-location">Beijing, China</div>
+            </div>
+            <div class="event-card">
+              <div class="event-date"><i class="fa-regular fa-calendar"></i> Sep 5-7</div>
+              <div class="event-title">CFD Symposium</div>
+              <div class="event-location">Singapore</div>
+            </div>
+            <div class="event-card">
+              <div class="event-date"><i class="fa-regular fa-calendar"></i> Nov 2-4</div>
+              <div class="event-title">Hybrid Nanofluids Workshop</div>
+              <div class="event-location">Online</div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Right Column -->
-      <div>
-        <!-- Researcher Profiles Card -->
+      <div class="right-col">
+        <!-- Researcher Profiles -->
         <div class="card">
           <div class="card-header">
             <i class="fa-regular fa-address-card"></i>
@@ -359,24 +549,46 @@
           </div>
         </div>
 
-        <!-- Publications Card -->
+        <!-- Research Areas -->
         <div class="card">
           <div class="card-header">
-            <i class="fa-regular fa-book-open"></i>
-            <span>Recent Publications</span>
+            <i class="fa-regular fa-flask"></i>
+            <span>Research Areas</span>
+          </div>
+          <div class="tags-container">
+            <span class="tag">CFD</span>
+            <span class="tag">Nanofluids</span>
+            <span class="tag">PDEs</span>
+            <span class="tag">Heat Transfer</span>
+            <span class="tag">Entropy</span>
+            <span class="tag">MATLAB</span>
+            <span class="tag">Mathematica</span>
+            <span class="tag">MHD Flow</span>
+          </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="card">
+          <div class="card-header">
+            <i class="fa-regular fa-address-book"></i>
+            <span>Contact</span>
           </div>
           <div class="profile-list">
             <div class="profile-item">
-              <i class="fa-regular fa-file-lines"></i>
-              <span>Physics of Fluids (2025)</span>
+              <i class="fa-regular fa-envelope"></i>
+              <span>taqmeem961@email.com</span>
             </div>
             <div class="profile-item">
-              <i class="fa-regular fa-file-lines"></i>
-              <span>Int. J. Heat Mass Transfer (2024)</span>
+              <i class="fa-regular fa-building-columns"></i>
+              <span>Beijing Forestry University</span>
             </div>
             <div class="profile-item">
-              <i class="fa-regular fa-file-lines"></i>
-              <span>Scientific Reports (2024)</span>
+              <i class="fa-regular fa-location-dot"></i>
+              <span>Beijing, China</span>
+            </div>
+            <div class="profile-item">
+              <i class="fa-regular fa-phone"></i>
+              <span>+86 (10) 1234-5678</span>
             </div>
           </div>
         </div>
@@ -388,5 +600,23 @@
   <div class="footer">
     <p>© 2026 Dr. Taqmeem Bibi · Department of Mathematics · Beijing Forestry University, China</p>
   </div>
+
+  <!-- Rotating Header Script -->
+  <script>
+    const images = [
+      'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80',
+      'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80',
+      'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80'
+    ];
+    
+    let index = 0;
+    function rotateHeader() {
+      document.getElementById('hero').style.backgroundImage = `url('${images[index]}')`;
+      index = (index + 1) % images.length;
+    }
+    
+    rotateHeader();
+    setInterval(rotateHeader, 3000);
+  </script>
 </body>
 </html>
