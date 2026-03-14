@@ -171,12 +171,11 @@
       margin: 30px 0;
     }
 
-    /* left column cards - FIXED PADDING ISSUE */
+    /* left column cards - FIXED */
     .left-column {
       display: flex;
       flex-direction: column;
       gap: 30px;
-      width: 100%;
     }
 
     .card {
@@ -185,7 +184,6 @@
       padding: 25px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.05);
       width: 100%;
-      margin: 0; /* Remove any default margin */
     }
 
     .card h3 {
@@ -207,14 +205,13 @@
     .slider-container {
       width: 100%;
       overflow: hidden;
-      position: relative;
     }
 
     .coauthor-slider {
       display: flex;
       gap: 15px;
       animation: slide 25s linear infinite;
-      width: fit-content;
+      width: max-content;
     }
 
     .coauthor-item {
@@ -226,6 +223,7 @@
       gap: 10px;
       border: 1px solid #e0e0e0;
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .coauthor-item i {
@@ -235,13 +233,14 @@
 
     @keyframes slide {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      100% { transform: translateX(calc(-50% - 7.5px)); }
     }
 
-    /* journal list */
+    /* journal list - FIXED */
     .journal-list {
       max-height: 300px;
       overflow-y: auto;
+      padding-right: 5px;
     }
 
     .journal-entry {
@@ -259,6 +258,11 @@
       color: #667eea;
       font-size: 1.2rem;
       min-width: 25px;
+      margin-top: 3px;
+    }
+
+    .journal-details {
+      flex: 1;
     }
 
     .journal-details h4 {
@@ -272,12 +276,13 @@
       font-size: 0.95rem;
     }
 
-    /* events slider */
+    /* events slider - FIXED */
     .events-scroll {
       display: flex;
       gap: 20px;
       overflow-x: auto;
-      padding: 10px 0 20px 0;
+      padding: 5px 0 15px 0;
+      scrollbar-width: thin;
     }
 
     .event-box {
@@ -286,18 +291,21 @@
       border-radius: 12px;
       padding: 20px;
       border: 1px solid #e0e0e0;
+      flex-shrink: 0;
     }
 
     .event-date {
       color: #667eea;
       font-weight: 600;
       margin-bottom: 10px;
+      font-size: 0.95rem;
     }
 
     .event-title {
       font-weight: 600;
       margin-bottom: 8px;
       color: #333;
+      font-size: 1.1rem;
     }
 
     .event-location {
@@ -305,12 +313,11 @@
       font-size: 0.9rem;
     }
 
-    /* RIGHT COLUMN */
+    /* RIGHT COLUMN - FIXED */
     .right-column {
       display: flex;
       flex-direction: column;
       gap: 30px;
-      width: 100%;
     }
 
     .profile-section {
@@ -370,7 +377,7 @@
       font-weight: 500;
     }
 
-    /* RESEARCH AREAS SECTION */
+    /* RESEARCH AREAS - FIXED */
     .research-section {
       background: white;
       border-radius: 15px;
@@ -442,6 +449,25 @@
       box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
     }
 
+    /* scrollbar styling */
+    .journal-list::-webkit-scrollbar,
+    .events-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    .journal-list::-webkit-scrollbar-track,
+    .events-scroll::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    .journal-list::-webkit-scrollbar-thumb,
+    .events-scroll::-webkit-scrollbar-thumb {
+      background: #667eea;
+      border-radius: 10px;
+    }
+
     /* responsive */
     @media (max-width: 900px) {
       .main-content {
@@ -478,6 +504,10 @@
       .stat-item {
         width: 100%;
         text-align: center;
+      }
+      
+      .card {
+        padding: 20px;
       }
     }
   </style>
@@ -523,7 +553,7 @@
 
     <!-- MAIN CONTENT - TWO COLUMNS -->
     <div class="main-content">
-      <!-- LEFT COLUMN - FIXED SYMMETRICAL PADDING -->
+      <!-- LEFT COLUMN - ALL CARDS NOW FIXED -->
       <div class="left-column">
         <!-- Top Coauthors Card -->
         <div class="card">
