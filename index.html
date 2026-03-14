@@ -76,20 +76,21 @@
       color: white;
     }
 
-    /* Main container - CRITICAL: fixed width */
+    /* Main container */
     .container {
-      max-width: 800px;  /* Fixed width - not too wide */
+      max-width: 1000px;
       margin: 1.5rem auto;
-      padding: 0 1rem;
+      padding: 0 2rem;
     }
 
-    /* Welcome card */
+    /* Welcome card - full width */
     .welcome-card {
       background: white;
       border-radius: 10px;
       padding: 1.5rem;
       margin-bottom: 1.5rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      width: 100%;
     }
 
     .welcome-card h2 {
@@ -125,11 +126,18 @@
       margin-right: 0.3rem;
     }
 
-    /* Two column layout - balanced */
+    /* Two column layout - REDUCED WIDTH */
+    .two-column-wrapper {
+      display: flex;
+      justify-content: center; /* Center the columns */
+      width: 100%;
+    }
+
     .two-column {
       display: grid;
-      grid-template-columns: 1fr 1fr;  /* Equal columns */
-      gap: 1rem;
+      grid-template-columns: 350px 350px;  /* FIXED WIDTH columns */
+      gap: 1.5rem;
+      width: fit-content;  /* Only as wide as content */
     }
 
     /* Cards */
@@ -139,6 +147,7 @@
       padding: 1.2rem;
       margin-bottom: 1rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      width: 100%;
     }
 
     .card-header {
@@ -183,10 +192,18 @@
     .profile-item a {
       text-decoration: none;
       color: #4a5568;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 250px;
     }
 
     .profile-item span {
       color: #4a5568;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 250px;
     }
 
     /* Coauthor chips */
@@ -205,6 +222,7 @@
       gap: 0.3rem;
       border: 1px solid #e2e8f0;
       font-size: 0.8rem;
+      white-space: nowrap;
     }
 
     .coauthor-chip i {
@@ -225,6 +243,7 @@
       font-size: 0.8rem;
       border: 1px solid #e2e8f0;
       color: #4a5568;
+      white-space: nowrap;
     }
 
     /* Footer */
@@ -239,9 +258,10 @@
     }
 
     /* Responsive */
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
       .two-column {
         grid-template-columns: 1fr;
+        width: 100%;
       }
       
       .hero h1 {
@@ -277,9 +297,9 @@
     <a href="#">Contact</a>
   </div>
 
-  <!-- Main Container - FIXED WIDTH -->
+  <!-- Main Container -->
   <div class="container">
-    <!-- Welcome Card -->
+    <!-- Welcome Card - FULL WIDTH -->
     <div class="welcome-card">
       <h2>Welcome to My Research Profile</h2>
       <p>I am at Beijing Forestry University, Beijing, China, specializing in applied mathematics and computational fluid dynamics. My research focuses on numerical analysis of partial differential equations, hybrid nanofluids, entropy generation, and heat transfer processes.</p>
@@ -292,91 +312,94 @@
       </div>
     </div>
 
-    <!-- Two Column Layout -->
-    <div class="two-column">
-      <!-- Left Column -->
-      <div>
-        <!-- Top Coauthors Card -->
-        <div class="card">
-          <div class="card-header">
-            <i class="fa-regular fa-users"></i>
-            <span>Top Coauthors</span>
+    <!-- Two Column Wrapper - CENTERED with REDUCED WIDTH -->
+    <div class="two-column-wrapper">
+      <div class="two-column">
+        <!-- Left Column -->
+        <div>
+          <!-- Top Coauthors Card -->
+          <div class="card">
+            <div class="card-header">
+              <i class="fa-regular fa-users"></i>
+              <span>Top Coauthors</span>
+            </div>
+            <div class="coauthor-container">
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. Y. Wang</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. A. Kumar</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. S. Zhang</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. L. Chen</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. M. Ali</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. F. Rossi</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. H. Tanaka</span>
+            </div>
           </div>
-          <div class="coauthor-container">
-            <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. Y. Wang</span>
-            <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. A. Kumar</span>
-            <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. S. Zhang</span>
-            <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. L. Chen</span>
-            <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. M. Ali</span>
-            <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. F. Rossi</span>
-            <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. H. Tanaka</span>
-          </div>
-        </div>
 
-        <!-- Research Areas Card -->
-        <div class="card">
-          <div class="card-header">
-            <i class="fa-regular fa-flask"></i>
-            <span>Research Areas</span>
-          </div>
-          <div class="tags-container">
-            <span class="tag">CFD</span>
-            <span class="tag">Nanofluids</span>
-            <span class="tag">PDEs</span>
-            <span class="tag">Heat Transfer</span>
-            <span class="tag">Entropy</span>
-            <span class="tag">MATLAB</span>
-            <span class="tag">Mathematica</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column -->
-      <div>
-        <!-- Researcher Profiles Card -->
-        <div class="card">
-          <div class="card-header">
-            <i class="fa-regular fa-address-card"></i>
-            <span>Researcher Profiles</span>
-          </div>
-          <div class="profile-list">
-            <div class="profile-item">
-              <i class="fa-brands fa-google-scholar"></i>
-              <a href="#">Google Scholar (340+ citations)</a>
+          <!-- Research Areas Card -->
+          <div class="card">
+            <div class="card-header">
+              <i class="fa-regular fa-flask"></i>
+              <span>Research Areas</span>
             </div>
-            <div class="profile-item">
-              <i class="fa-brands fa-orcid"></i>
-              <a href="#">ORCID: 0009-0006-9008-8094</a>
-            </div>
-            <div class="profile-item">
-              <i class="fa-brands fa-researchgate"></i>
-              <a href="#">ResearchGate</a>
-            </div>
-            <div class="profile-item">
-              <i class="fa-brands fa-linkedin"></i>
-              <a href="#">LinkedIn</a>
+            <div class="tags-container">
+              <span class="tag">CFD</span>
+              <span class="tag">Nanofluids</span>
+              <span class="tag">PDEs</span>
+              <span class="tag">Heat Transfer</span>
+              <span class="tag">Entropy</span>
+              <span class="tag">MATLAB</span>
+              <span class="tag">Mathematica</span>
+              <span class="tag">MHD Flow</span>
             </div>
           </div>
         </div>
 
-        <!-- Publications Card -->
-        <div class="card">
-          <div class="card-header">
-            <i class="fa-regular fa-book-open"></i>
-            <span>Recent Publications</span>
+        <!-- Right Column -->
+        <div>
+          <!-- Researcher Profiles Card -->
+          <div class="card">
+            <div class="card-header">
+              <i class="fa-regular fa-address-card"></i>
+              <span>Researcher Profiles</span>
+            </div>
+            <div class="profile-list">
+              <div class="profile-item">
+                <i class="fa-brands fa-google-scholar"></i>
+                <a href="#">Google Scholar (340+ citations)</a>
+              </div>
+              <div class="profile-item">
+                <i class="fa-brands fa-orcid"></i>
+                <a href="#">ORCID: 0009-0006-9008-8094</a>
+              </div>
+              <div class="profile-item">
+                <i class="fa-brands fa-researchgate"></i>
+                <a href="#">ResearchGate</a>
+              </div>
+              <div class="profile-item">
+                <i class="fa-brands fa-linkedin"></i>
+                <a href="#">LinkedIn</a>
+              </div>
+            </div>
           </div>
-          <div class="profile-list">
-            <div class="profile-item">
-              <i class="fa-regular fa-file-lines"></i>
-              <span>Physics of Fluids (2025)</span>
+
+          <!-- Publications Card -->
+          <div class="card">
+            <div class="card-header">
+              <i class="fa-regular fa-book-open"></i>
+              <span>Recent Publications</span>
             </div>
-            <div class="profile-item">
-              <i class="fa-regular fa-file-lines"></i>
-              <span>Int. J. Heat Mass Transfer (2024)</span>
-            </div>
-            <div class="profile-item">
-              <i class="fa-regular fa-file-lines"></i>
-              <span>Scientific Reports (2024)</span>
+            <div class="profile-list">
+              <div class="profile-item">
+                <i class="fa-regular fa-file-lines"></i>
+                <span>Physics of Fluids (2025)</span>
+              </div>
+              <div class="profile-item">
+                <i class="fa-regular fa-file-lines"></i>
+                <span>Int. J. Heat Mass Transfer (2024)</span>
+              </div>
+              <div class="profile-item">
+                <i class="fa-regular fa-file-lines"></i>
+                <span>Scientific Reports (2024)</span>
+              </div>
             </div>
           </div>
         </div>
