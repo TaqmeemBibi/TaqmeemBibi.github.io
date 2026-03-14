@@ -7,7 +7,421 @@
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style><!DOCTYPE html>
+<html lang="en"><!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Taqmeem Bibi · Academic Website</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: #f5f7fa;
+      color: #2d3748;
+      line-height: 1.5;
+    }
+
+    /* Header */
+    .hero {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    /* Math equation */
+    .math-equation {
+      background: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.3rem;
+      border-bottom: 1px solid #e2e8f0;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Navigation */
+    .nav-bar {
+      background: white;
+      padding: 0.8rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .nav-bar a {
+      text-decoration: none;
+      color: #4a5568;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+    }
+
+    .nav-bar a:hover {
+      background: #667eea;
+      color: white;
+    }
+
+    /* Main container */
+    .container {
+      max-width: 1000px;
+      margin: 1.5rem auto;
+      padding: 0 2rem;
+    }
+
+    /* Welcome card - full width */
+    .welcome-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      width: 100%;
+    }
+
+    .welcome-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #2d3748;
+    }
+
+    .welcome-card p {
+      color: #4a5568;
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .stat-badge {
+      background: #f7fafc;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      border: 1px solid #e2e8f0;
+      color: #4a5568;
+    }
+
+    .stat-badge i {
+      color: #667eea;
+      margin-right: 0.3rem;
+    }
+
+    /* Two column layout - REDUCED WIDTH */
+    .two-column-wrapper {
+      display: flex;
+      justify-content: center; /* Center the columns */
+      width: 100%;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 350px 350px;  /* FIXED WIDTH columns */
+      gap: 1.5rem;
+      width: fit-content;  /* Only as wide as content */
+    }
+
+    /* Cards */
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      width: 100%;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid #f0f4f8;
+      color: #2d3748;
+    }
+
+    .card-header i {
+      color: #667eea;
+    }
+
+    /* Profile list */
+    .profile-list {
+      margin-top: 0.3rem;
+    }
+
+    .profile-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f0f4f8;
+      font-size: 0.9rem;
+    }
+
+    .profile-item:last-child {
+      border-bottom: none;
+    }
+
+    .profile-item i {
+      width: 1rem;
+      color: #667eea;
+    }
+
+    .profile-item a {
+      text-decoration: none;
+      color: #4a5568;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 250px;
+    }
+
+    .profile-item span {
+      color: #4a5568;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 250px;
+    }
+
+    /* Coauthor chips */
+    .coauthor-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .coauthor-chip {
+      background: #f7fafc;
+      padding: 0.3rem 0.8rem;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      border: 1px solid #e2e8f0;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    .coauthor-chip i {
+      color: #667eea;
+    }
+
+    /* Research tags */
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      background: #f7fafc;
+      padding: 0.3rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      border: 1px solid #e2e8f0;
+      color: #4a5568;
+      white-space: nowrap;
+    }
+
+    /* Footer */
+    .footer {
+      background: white;
+      padding: 1.2rem;
+      margin-top: 2rem;
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+      color: #718096;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .two-column {
+        grid-template-columns: 1fr;
+        width: 100%;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .nav-bar {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="hero">
+    <h1>Dr. Taqmeem Bibi</h1>
+    <p><i class="fa-regular fa-at"></i> Mathematics · CFD · Nanofluids</p>
+  </div>
+
+  <!-- Math Equation -->
+  <div class="math-equation">
+    Q_total = Q₁ + Q₂ = 3ε₀ (S/d) U₀
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-bar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Publications</a>
+    <a href="#">Research</a>
+    <a href="#">CV</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Welcome Card - FULL WIDTH -->
+    <div class="welcome-card">
+      <h2>Welcome to My Research Profile</h2>
+      <p>I am at Beijing Forestry University, Beijing, China, specializing in applied mathematics and computational fluid dynamics. My research focuses on numerical analysis of partial differential equations, hybrid nanofluids, entropy generation, and heat transfer processes.</p>
+      
+      <div class="stats-row">
+        <span class="stat-badge"><i class="fa-regular fa-file-lines"></i> 18+ Publications</span>
+        <span class="stat-badge"><i class="fa-regular fa-users"></i> 12+ Coauthors</span>
+        <span class="stat-badge"><i class="fa-regular fa-calendar"></i> 5 Events 2025</span>
+        <span class="stat-badge"><i class="fa-regular fa-building-columns"></i> Beijing Forestry Univ.</span>
+      </div>
+    </div>
+
+    <!-- Two Column Wrapper - CENTERED with REDUCED WIDTH -->
+    <div class="two-column-wrapper">
+      <div class="two-column">
+        <!-- Left Column -->
+        <div>
+          <!-- Top Coauthors Card -->
+          <div class="card">
+            <div class="card-header">
+              <i class="fa-regular fa-users"></i>
+              <span>Top Coauthors</span>
+            </div>
+            <div class="coauthor-container">
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. Y. Wang</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. A. Kumar</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. S. Zhang</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. L. Chen</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. M. Ali</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Dr. F. Rossi</span>
+              <span class="coauthor-chip"><i class="fa-regular fa-circle-user"></i> Prof. H. Tanaka</span>
+            </div>
+          </div>
+
+          <!-- Research Areas Card -->
+          <div class="card">
+            <div class="card-header">
+              <i class="fa-regular fa-flask"></i>
+              <span>Research Areas</span>
+            </div>
+            <div class="tags-container">
+              <span class="tag">CFD</span>
+              <span class="tag">Nanofluids</span>
+              <span class="tag">PDEs</span>
+              <span class="tag">Heat Transfer</span>
+              <span class="tag">Entropy</span>
+              <span class="tag">MATLAB</span>
+              <span class="tag">Mathematica</span>
+              <span class="tag">MHD Flow</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div>
+          <!-- Researcher Profiles Card -->
+          <div class="card">
+            <div class="card-header">
+              <i class="fa-regular fa-address-card"></i>
+              <span>Researcher Profiles</span>
+            </div>
+            <div class="profile-list">
+              <div class="profile-item">
+                <i class="fa-brands fa-google-scholar"></i>
+                <a href="#">Google Scholar (340+ citations)</a>
+              </div>
+              <div class="profile-item">
+                <i class="fa-brands fa-orcid"></i>
+                <a href="#">ORCID: 0009-0006-9008-8094</a>
+              </div>
+              <div class="profile-item">
+                <i class="fa-brands fa-researchgate"></i>
+                <a href="#">ResearchGate</a>
+              </div>
+              <div class="profile-item">
+                <i class="fa-brands fa-linkedin"></i>
+                <a href="#">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Publications Card -->
+          <div class="card">
+            <div class="card-header">
+              <i class="fa-regular fa-book-open"></i>
+              <span>Recent Publications</span>
+            </div>
+            <div class="profile-list">
+              <div class="profile-item">
+                <i class="fa-regular fa-file-lines"></i>
+                <span>Physics of Fluids (2025)</span>
+              </div>
+              <div class="profile-item">
+                <i class="fa-regular fa-file-lines"></i>
+                <span>Int. J. Heat Mass Transfer (2024)</span>
+              </div>
+              <div class="profile-item">
+                <i class="fa-regular fa-file-lines"></i>
+                <span>Scientific Reports (2024)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>© 2026 Dr. Taqmeem Bibi · Department of Mathematics · Beijing Forestry University, China</p>
+  </div>
+</body>
+</html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
