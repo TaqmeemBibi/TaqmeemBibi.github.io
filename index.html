@@ -163,21 +163,32 @@
       margin-right: 8px;
     }
 
-    /* main two column layout */
+    /* main two column layout - FIXED */
     .main-content {
       display: grid;
       grid-template-columns: 1.5fr 1fr;
       gap: 30px;
       margin: 30px 0;
+      width: 100%;
     }
 
-    /* left column cards - FIXED */
+    /* left column */
     .left-column {
       display: flex;
       flex-direction: column;
       gap: 30px;
+      width: 100%;
     }
 
+    /* right column - NOW VISIBLE */
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+    }
+
+    /* cards - FIXED WITH PROPER PADDING */
     .card {
       background: white;
       border-radius: 15px;
@@ -223,7 +234,6 @@
       gap: 10px;
       border: 1px solid #e0e0e0;
       white-space: nowrap;
-      flex-shrink: 0;
     }
 
     .coauthor-item i {
@@ -233,14 +243,13 @@
 
     @keyframes slide {
       0% { transform: translateX(0); }
-      100% { transform: translateX(calc(-50% - 7.5px)); }
+      100% { transform: translateX(-50%); }
     }
 
-    /* journal list - FIXED */
+    /* journal list */
     .journal-list {
       max-height: 300px;
       overflow-y: auto;
-      padding-right: 5px;
     }
 
     .journal-entry {
@@ -258,7 +267,6 @@
       color: #667eea;
       font-size: 1.2rem;
       min-width: 25px;
-      margin-top: 3px;
     }
 
     .journal-details {
@@ -276,13 +284,12 @@
       font-size: 0.95rem;
     }
 
-    /* events slider - FIXED */
+    /* events slider */
     .events-scroll {
       display: flex;
       gap: 20px;
       overflow-x: auto;
       padding: 5px 0 15px 0;
-      scrollbar-width: thin;
     }
 
     .event-box {
@@ -298,14 +305,12 @@
       color: #667eea;
       font-weight: 600;
       margin-bottom: 10px;
-      font-size: 0.95rem;
     }
 
     .event-title {
       font-weight: 600;
       margin-bottom: 8px;
       color: #333;
-      font-size: 1.1rem;
     }
 
     .event-location {
@@ -313,14 +318,8 @@
       font-size: 0.9rem;
     }
 
-    /* RIGHT COLUMN - FIXED */
-    .right-column {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .profile-section {
+    /* PROFILES SECTION - NOW VISIBLE */
+    .profile-card {
       background: white;
       border-radius: 15px;
       padding: 25px;
@@ -328,7 +327,7 @@
       width: 100%;
     }
 
-    .profile-section h3 {
+    .profile-card h3 {
       font-size: 1.5rem;
       margin-bottom: 20px;
       color: #333;
@@ -339,11 +338,11 @@
       padding-bottom: 15px;
     }
 
-    .profile-section h3 i {
+    .profile-card h3 i {
       color: #667eea;
     }
 
-    .profile-link {
+    .profile-item {
       display: flex;
       align-items: center;
       gap: 15px;
@@ -351,34 +350,34 @@
       border-bottom: 1px solid #f0f0f0;
     }
 
-    .profile-link:last-child {
+    .profile-item:last-child {
       border-bottom: none;
     }
 
-    .profile-link i {
+    .profile-item i {
       width: 25px;
       color: #667eea;
       font-size: 1.2rem;
     }
 
-    .profile-link a {
+    .profile-item a {
       text-decoration: none;
       color: #444;
       font-weight: 500;
       transition: color 0.3s;
     }
 
-    .profile-link a:hover {
+    .profile-item a:hover {
       color: #667eea;
     }
 
-    .profile-link span {
+    .profile-item span {
       color: #444;
       font-weight: 500;
     }
 
-    /* RESEARCH AREAS - FIXED */
-    .research-section {
+    /* RESEARCH AREAS SECTION - NOW VISIBLE */
+    .research-card {
       background: white;
       border-radius: 15px;
       padding: 25px;
@@ -386,7 +385,7 @@
       width: 100%;
     }
 
-    .research-section h3 {
+    .research-card h3 {
       font-size: 1.5rem;
       margin-bottom: 20px;
       color: #333;
@@ -397,7 +396,7 @@
       padding-bottom: 15px;
     }
 
-    .research-section h3 i {
+    .research-card h3 i {
       color: #667eea;
     }
 
@@ -449,25 +448,6 @@
       box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
     }
 
-    /* scrollbar styling */
-    .journal-list::-webkit-scrollbar,
-    .events-scroll::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-
-    .journal-list::-webkit-scrollbar-track,
-    .events-scroll::-webkit-scrollbar-track {
-      background: #f1f1f1;
-      border-radius: 10px;
-    }
-
-    .journal-list::-webkit-scrollbar-thumb,
-    .events-scroll::-webkit-scrollbar-thumb {
-      background: #667eea;
-      border-radius: 10px;
-    }
-
     /* responsive */
     @media (max-width: 900px) {
       .main-content {
@@ -504,10 +484,6 @@
       .stat-item {
         width: 100%;
         text-align: center;
-      }
-      
-      .card {
-        padding: 20px;
       }
     }
   </style>
@@ -553,14 +529,13 @@
 
     <!-- MAIN CONTENT - TWO COLUMNS -->
     <div class="main-content">
-      <!-- LEFT COLUMN - ALL CARDS NOW FIXED -->
+      <!-- LEFT COLUMN -->
       <div class="left-column">
         <!-- Top Coauthors Card -->
         <div class="card">
           <h3><i class="fa-regular fa-users"></i> Top Coauthors</h3>
           <div class="slider-container">
             <div class="coauthor-slider">
-              <!-- First set -->
               <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Prof. Y. Wang</div>
               <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Dr. A. Kumar</div>
               <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Dr. S. Zhang</div>
@@ -572,8 +547,6 @@
               <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Prof. Y. Wang</div>
               <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Dr. A. Kumar</div>
               <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Dr. S. Zhang</div>
-              <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Prof. L. Chen</div>
-              <div class="coauthor-item"><i class="fa-regular fa-circle-user"></i> Dr. M. Ali</div>
             </div>
           </div>
         </div>
@@ -610,13 +583,6 @@
                 <p>Cattaneo-Christov heat flux model</p>
               </div>
             </div>
-            <div class="journal-entry">
-              <i class="fa-regular fa-file-lines"></i>
-              <div class="journal-details">
-                <h4>Energies (2023)</h4>
-                <p>Nanofluid stability analysis</p>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -644,54 +610,49 @@
               <div class="event-title">Hybrid Nanofluids Workshop</div>
               <div class="event-location">Online</div>
             </div>
-            <div class="event-box">
-              <div class="event-date"><i class="fa-regular fa-calendar"></i> Dec 10-12</div>
-              <div class="event-title">Intl. Congress of Mathematicians</div>
-              <div class="event-location">Shanghai, China</div>
-            </div>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT COLUMN -->
+      <!-- RIGHT COLUMN - NOW VISIBLE WITH ALL CONTENT -->
       <div class="right-column">
-        <!-- Profiles Section -->
-        <div class="profile-section">
+        <!-- Profiles Card -->
+        <div class="profile-card">
           <h3><i class="fa-regular fa-address-card"></i> Researcher Profiles</h3>
           
-          <div class="profile-link">
+          <div class="profile-item">
             <i class="fa-brands fa-google-scholar"></i>
             <a href="#">Google Scholar (340+ citations)</a>
           </div>
           
-          <div class="profile-link">
+          <div class="profile-item">
             <i class="fa-brands fa-orcid"></i>
             <a href="#">ORCID: 0009-0006-9008-8094</a>
           </div>
           
-          <div class="profile-link">
+          <div class="profile-item">
             <i class="fa-brands fa-researchgate"></i>
             <a href="#">ResearchGate</a>
           </div>
           
-          <div class="profile-link">
+          <div class="profile-item">
             <i class="fa-brands fa-linkedin"></i>
             <a href="#">LinkedIn</a>
           </div>
           
-          <div class="profile-link">
+          <div class="profile-item">
             <i class="fa-regular fa-envelope"></i>
             <a href="mailto:taqmeem961@email.com">taqmeem961@email.com</a>
           </div>
           
-          <div class="profile-link">
+          <div class="profile-item">
             <i class="fa-regular fa-building-columns"></i>
             <span>Beijing Forestry University</span>
           </div>
         </div>
 
-        <!-- Research Areas Section -->
-        <div class="research-section">
+        <!-- Research Areas Card -->
+        <div class="research-card">
           <h3><i class="fa-regular fa-flask"></i> Research Areas</h3>
           <div class="research-tags">
             <span class="tag"><i class="fa-regular fa-wave-square"></i> CFD</span>
@@ -703,6 +664,28 @@
             <span class="tag"><i class="fa-regular fa-cube"></i> Mathematica</span>
             <span class="tag"><i class="fa-regular fa-microscope"></i> Hybrid Nanofluids</span>
             <span class="tag"><i class="fa-regular fa-chart-scatter"></i> Numerical Methods</span>
+            <span class="tag"><i class="fa-regular fa-circle-nodes"></i> MHD Flow</span>
+            <span class="tag"><i class="fa-regular fa-atom"></i> Micro-organisms</span>
+          </div>
+        </div>
+
+        <!-- Quick Contact Card -->
+        <div class="profile-card">
+          <h3><i class="fa-regular fa-address-book"></i> Quick Contact</h3>
+          
+          <div class="profile-item">
+            <i class="fa-regular fa-envelope"></i>
+            <span>taqmeem961@email.com</span>
+          </div>
+          
+          <div class="profile-item">
+            <i class="fa-regular fa-phone"></i>
+            <span>+86 (10) 1234-5678</span>
+          </div>
+          
+          <div class="profile-item">
+            <i class="fa-regular fa-location-dot"></i>
+            <span>Beijing, China</span>
           </div>
         </div>
       </div>
