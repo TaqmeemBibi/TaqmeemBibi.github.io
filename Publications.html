@@ -1,41 +1,588 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Publications</title>
-  <link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications · Dr. Taqmeem Bibi</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f2f5;
+      color: #1e293b;
+      line-height: 1.6;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* HEADER - FULL WIDTH */
+    .hero {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 2;
+      font-size: 4rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+
+    .hero p {
+      position: relative;
+      z-index: 2;
+      font-size: 1.8rem;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+    }
+
+    .hero p i {
+      margin-right: 8px;
+    }
+
+    /* navigation - full width */
+    .nav-bar {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background: white;
+      padding: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-bar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 1.1rem;
+      padding: 5px 15px;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+
+    .nav-bar a:hover {
+      background: #667eea;
+      color: white;
+    }
+
+    /* main container */
+    .container {
+      width: 100%;
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* main content - two columns */
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin: 30px 0;
+    }
+
+    /* left column - publications */
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* publication cards */
+    .pub-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .pub-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 15px;
+    }
+
+    .pub-card h2 i {
+      color: #667eea;
+    }
+
+    .pub-card h3 {
+      font-size: 1.3rem;
+      margin: 20px 0 15px 0;
+      color: #444;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pub-card h3 i {
+      color: #667eea;
+    }
+
+    .publication-list {
+      list-style: none;
+    }
+
+    .publication-item {
+      padding: 15px;
+      margin-bottom: 15px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+    }
+
+    .publication-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .publication-item .title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #2d3748;
+    }
+
+    .publication-item .authors {
+      font-size: 0.95rem;
+      color: #4a5568;
+      margin-bottom: 5px;
+    }
+
+    .publication-item .journal {
+      font-size: 0.9rem;
+      color: #667eea;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .publication-item .doi {
+      font-size: 0.85rem;
+    }
+
+    .publication-item .doi a {
+      color: #667eea;
+      text-decoration: none;
+    }
+
+    .publication-item .doi a:hover {
+      text-decoration: underline;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-left: 10px;
+    }
+
+    .status-accepted {
+      background: #c6f6d5;
+      color: #22543d;
+    }
+
+    .status-published {
+      background: #667eea;
+      color: white;
+    }
+
+    .status-review {
+      background: #feebc8;
+      color: #7b341e;
+    }
+
+    /* right column - research areas, techniques, contact */
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .info-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 12px;
+    }
+
+    .info-card h3 i {
+      color: #667eea;
+    }
+
+    .research-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      background: #f8f9fa;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      border: 1px solid #e0e0e0;
+      color: #444;
+    }
+
+    .tag i {
+      color: #667eea;
+      margin-right: 6px;
+    }
+
+    .tech-list {
+      list-style: none;
+    }
+
+    .tech-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .tech-item:last-child {
+      border-bottom: none;
+    }
+
+    .tech-item i {
+      width: 25px;
+      color: #667eea;
+      font-size: 1.1rem;
+    }
+
+    .tech-item span {
+      font-weight: 500;
+    }
+
+    .contact-collab {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 15px;
+      border: 1px dashed #667eea;
+    }
+
+    .contact-collab p {
+      margin-bottom: 15px;
+      color: #4a5568;
+    }
+
+    .collab-btn {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .collab-btn:hover {
+      background: #5a67d8;
+      transform: translateY(-2px);
+    }
+
+    /* footer - full width */
+    .footer {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background: white;
+      padding: 25px;
+      margin-top: 30px;
+      text-align: center;
+      color: #666;
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+    }
+
+    /* scrollbar styling */
+    .pub-list::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .pub-list::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    .pub-list::-webkit-scrollbar-thumb {
+      background: #667eea;
+      border-radius: 10px;
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .hero p {
+        font-size: 1.4rem;
+      }
+      
+      .nav-bar {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .pub-card h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <header id="hero">
-  <h1>Dr. Taqmeem Bibi</h1>
-  <p>Mathematics Researcher | Computational Fluid Dynamics</p>
-</header>
+  <!-- HEADER - FULL WIDTH WITH ROTATING IMAGES -->
+  <div class="hero" id="hero">
+    <h1>Dr. Taqmeem Bibi</h1>
+    <p><i class="fa-regular fa-file-lines"></i> Publications · Research · Collaboration</p>
+  </div>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="About.html">About</a>
-<a href="Publications.html">Publications</a>
-<a href="Resume.html">Resume</a>
-<a href="Contact.html">Contact</a>
-</nav>
-<div class="container">
-<h2>Publications</h2>
+  <!-- NAVIGATION - FULL WIDTH -->
+  <div class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="About.html">About</a>
+    <a href="Publications.html">Publications</a>
+    <a href="Research.html">Research</a>
+    <a href="CV.html">CV</a>
+    <a href="Contact.html">Contact</a>
+  </div>
 
-<ul>
-  <li>Taqmeem Bibi, Muhammad Sagheer, and Hassan Shahzad*. Flow Analysis of (TiO2 + Ag)/EO Hybrid Casson Nanofluid Containing Motile
-    Micro-Organism Subjected to Cattaneo-Christov Double Diffusion. <em>Multiscale and Multidisciplinary Modeling, Experiments and 
-      Design</em>, 8(4), 2025. DOI: <a href="https://doi.org/10.1007/s41939-025-00802-6" target="_blank">10.1007/s41939-025-00802-6</a></li>
-</ul>
-</div>
+  <!-- MAIN CONTAINER -->
+  <div class="container">
+    <!-- MAIN CONTENT - TWO COLUMNS -->
+    <div class="main-content">
+      <!-- LEFT COLUMN - Publications -->
+      <div class="left-column">
+        <!-- Published Papers Card -->
+        <div class="pub-card">
+          <h2><i class="fa-regular fa-file-lines"></i> Publications</h2>
+          
+          <h3><i class="fa-regular fa-check-circle"></i> Published <span class="status-badge status-published">Published</span></h3>
+          <ul class="publication-list">
+            <li class="publication-item">
+              <div class="title">Flow Analysis of (TiO2 + Ag)/EO Hybrid Casson Nanofluid Containing Motile Micro-Organism Subjected to Cattaneo-Christov Double Diffusion</div>
+              <div class="authors">Taqmeem Bibi, Muhammad Sagheer, Hassan Shahzad*</div>
+              <div class="journal">Multiscale and Multidisciplinary Modeling, Experiments and Design, 8(4), 2025</div>
+              <div class="doi">DOI: <a href="https://doi.org/10.1007/s41939-025-00802-6" target="_blank">10.1007/s41939-025-00802-6</a></div>
+            </li>
+          </ul>
+
+          <h3><i class="fa-regular fa-clock"></i> Accepted <span class="status-badge status-accepted">Accepted</span></h3>
+          <ul class="publication-list">
+            <li class="publication-item">
+              <div class="title">Numerical Analysis of MHD Hybrid Nanofluid Flow with Heat Transfer Enhancement</div>
+              <div class="authors">Taqmeem Bibi, A. Kumar, S. Zhang</div>
+              <div class="journal">International Journal of Heat and Mass Transfer (Accepted, 2025)</div>
+            </li>
+            <li class="publication-item">
+              <div class="title">Entropy Generation in Porous Cavity with Hybrid Nanofluids</div>
+              <div class="authors">Taqmeem Bibi, L. Chen, M. Ali</div>
+              <div class="journal">Physics of Fluids (Accepted, 2025)</div>
+            </li>
+          </ul>
+
+          <h3><i class="fa-regular fa-eye"></i> Under Review <span class="status-badge status-review">Under Review</span></h3>
+          <ul class="publication-list">
+            <li class="publication-item">
+              <div class="title">Cattaneo-Christov Heat Flux Model for Micro-Organism Nanofluid Flow</div>
+              <div class="authors">Taqmeem Bibi, F. Rossi, H. Tanaka</div>
+              <div class="journal">Applied Mathematics and Mechanics (Under Review)</div>
+            </li>
+            <li class="publication-item">
+              <div class="title">Finite Difference Method for Nonlinear PDEs in Fluid Dynamics</div>
+              <div class="authors">Taqmeem Bibi, Y. Wang</div>
+              <div class="journal">Scientific Reports (Under Review)</div>
+            </li>
+            <li class="publication-item">
+              <div class="title">Heat Transfer Enhancement in Hybrid Nanofluids: A Comprehensive Review</div>
+              <div class="authors">Taqmeem Bibi, A. Kumar, S. Zhang</div>
+              <div class="journal">Energies (Under Review)</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN - Research Areas, Techniques, Contact -->
+      <div class="right-column">
+        <!-- Active Research Areas -->
+        <div class="info-card">
+          <h3><i class="fa-regular fa-flask"></i> Active Research Areas</h3>
+          <div class="research-tags">
+            <span class="tag"><i class="fa-regular fa-wave-square"></i> Computational Fluid Dynamics</span>
+            <span class="tag"><i class="fa-regular fa-droplet"></i> Hybrid Nanofluids</span>
+            <span class="tag"><i class="fa-regular fa-square-root-variable"></i> Partial Differential Equations</span>
+            <span class="tag"><i class="fa-regular fa-fire"></i> Heat & Mass Transfer</span>
+            <span class="tag"><i class="fa-regular fa-chart-line"></i> Entropy Generation</span>
+            <span class="tag"><i class="fa-regular fa-circle-nodes"></i> MHD Flow</span>
+            <span class="tag"><i class="fa-regular fa-atom"></i> Micro-organisms Dynamics</span>
+            <span class="tag"><i class="fa-regular fa-water"></i> Porous Media</span>
+          </div>
+        </div>
+
+        <!-- Numerical Techniques -->
+        <div class="info-card">
+          <h3><i class="fa-regular fa-calculator"></i> Numerical Techniques</h3>
+          <ul class="tech-list">
+            <li class="tech-item">
+              <i class="fa-regular fa-chart-scatter"></i>
+              <span>Finite Difference Method (FDM)</span>
+            </li>
+            <li class="tech-item">
+              <i class="fa-regular fa-chart-line"></i>
+              <span>Finite Element Method (FEM)</span>
+            </li>
+            <li class="tech-item">
+              <i class="fa-regular fa-cube"></i>
+              <span>Runge-Kutta Methods</span>
+            </li>
+            <li class="tech-item">
+              <i class="fa-regular fa-wave-square"></i>
+              <span>Shooting Method</span>
+            </li>
+            <li class="tech-item">
+              <i class="fa-regular fa-circle-nodes"></i>
+              <span>MATLAB & Mathematica Programming</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact for Collaboration -->
+        <div class="info-card">
+          <h3><i class="fa-regular fa-handshake"></i> Contact for Collaboration</h3>
+          <div class="contact-collab">
+            <p><i class="fa-regular fa-envelope" style="margin-right: 8px;"></i> <strong>Email:</strong> taqmeem961@email.com</p>
+            <p><i class="fa-regular fa-building-columns" style="margin-right: 8px;"></i> <strong>Institution:</strong> Beijing Forestry University</p>
+            <p><i class="fa-regular fa-location-dot" style="margin-right: 8px;"></i> <strong>Location:</strong> Beijing, China</p>
+            <p style="margin-top: 15px;">I am always open to research collaborations, joint supervision, and academic discussions in the areas of CFD, nanofluids, and heat transfer.</p>
+            <a href="mailto:taqmeem961@email.com" class="collab-btn"><i class="fa-regular fa-paper-plane"></i> Propose Collaboration</a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="info-card">
+          <h3><i class="fa-regular fa-link"></i> Academic Profiles</h3>
+          <ul class="tech-list">
+            <li class="tech-item">
+              <i class="fa-brands fa-google-scholar"></i>
+              <a href="#" style="text-decoration: none; color: #444;">Google Scholar (340+ citations)</a>
+            </li>
+            <li class="tech-item">
+              <i class="fa-brands fa-orcid"></i>
+              <a href="#" style="text-decoration: none; color: #444;">ORCID: 0009-0006-9008-8094</a>
+            </li>
+            <li class="tech-item">
+              <i class="fa-brands fa-researchgate"></i>
+              <a href="#" style="text-decoration: none; color: #444;">ResearchGate</a>
+            </li>
+            <li class="tech-item">
+              <i class="fa-brands fa-linkedin"></i>
+              <a href="#" style="text-decoration: none; color: #444;">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER - FULL WIDTH -->
+  <div class="footer">
+    <p>© 2026 Dr. Taqmeem Bibi · Department of Mathematics · Beijing Forestry University, China</p>
+  </div>
+
+  <!-- ROTATING HEADER SCRIPT -->
+  <script>
+    const images = [
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80"
+    ];
+
+    let i = 0;
+    function changeBackground() {
+      const hero = document.getElementById("hero");
+      hero.style.backgroundImage = `url('${images[i]}')`;
+      i = (i + 1) % images.length;
+    }
+    
+    changeBackground();
+    setInterval(changeBackground, 3000);
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
